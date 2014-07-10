@@ -19,7 +19,7 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
     data <- lapply(file, read.csv)
     data <- do.call(rbind, data)
     
-    return(mean(data[,pollutant], na.rm=T))
+    return(mean(data[, pollutant], na.rm = T))
 }
 
 source("pollutantmean.R")
