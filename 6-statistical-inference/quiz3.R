@@ -1,5 +1,3 @@
-setwd("~/GitHub/datasciencecoursera/6-statistical-inference/")
-
 # Q1
 mu <- 1100; sd <- 30; n <- 9
 mu + c(-1,1) * sd / sqrt(n) * qt(0.975, n-1)

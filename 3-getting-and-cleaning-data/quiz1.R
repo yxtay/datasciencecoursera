@@ -1,4 +1,4 @@
-setwd("~/Github/datasciencecoursera/Getting and Cleaning Data")
+setwd("~/Github/datasciencecoursera/3-getting-and-cleaning-data/")
 
 # Q1
 df <- read.csv("getdata-data-ss06hid.csv")

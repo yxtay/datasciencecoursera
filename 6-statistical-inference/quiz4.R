@@ -1,5 +1,3 @@
-setwd("~/GitHub/datasciencecoursera/6-statistical-inference/")
-
 # Q1
 x <- c(140,138,150,148,135)
 y <- c(132,135,151,146,130)

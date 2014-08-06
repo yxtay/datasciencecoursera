@@ -1,5 +1,3 @@
-setwd("~/GitHub/datasciencecoursera/6-statistical-inference/")
-
 # Q2
 mu <- 80; sd <- 10
 pnorm((70 - mu) / sd)

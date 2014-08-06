@@ -1,4 +1,4 @@
-setwd("~/GitHub/datasciencecoursera/3. Getting and Cleaning Data/")
+setwd("~/GitHub/datasciencecoursera/3-getting-and-cleaning-data/")
 
 # Q1
 library(jsonlite)
