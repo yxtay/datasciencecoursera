@@ -46,4 +46,4 @@ par(op)
 coef5 <- summary(fit5)$coef
 CI <- confint(fit5)[4,]
 
-knit2pdf("report.Rmd")
+knit2html("reg-report.Rmd")
