@@ -1,0 +1,1115 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdftex 2014.8.6)  6 AUG 2014 14:26
+entering extended mode
+**C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/asse
+ssment/report.md
+
+(C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/asses
+sment/report.md
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:2: Missing $ inserted
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:4: Missing $ inserted
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:5: Undefined control sequence
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (214.67729pt too wide) in paragraph at lines 7--9
+[]\tenrm Is an au-to-matic or man-ual trans-mis-sion bet-ter for MPG? =========
+============================================= |
+
+\hbox(6.94444+0.0)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm I
+.\tenrm s
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.\tenrm a
+.etc.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:10: You can't use `macro parameter character #' in vertical mode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:10: You can't use `macro parameter character #' in vertical mode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:21: You can't use `macro parameter character #' in vertical mode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:21: You can't use `macro parameter character #' in vertical mode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+Overfull \hbox (0.63367pt too wide) in paragraph at lines 23--29
+[]\tenrm The data was ob-tained from the `datasets` R pack-age ([documentation]
+(http://stat.ethz.ch/R-manual/R-|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm T
+.\tenrm h
+.\tenrm e
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.etc.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:36: You can't use `macro parameter character #' in vertical mode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:36: You can't use `macro parameter character #' in vertical mode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:56: You can't use `macro parameter character #' in vertical mode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:56: You can't use `macro parameter character #' in vertical mode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:68: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:68: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:69: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:69: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:70: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:70: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:71: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:71: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:81: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:81: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:82: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:82: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:83: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:83: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:84: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:84: You can't use `macro parameter character #' in horizontal mo
+de
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:100: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:100: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:101: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:101: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:102: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:102: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:103: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:103: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:104: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:104: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:105: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:105: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:106: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:106: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+ [1{C:/Users/YuXuan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:116: You can't use `macro parameter character #' in vertical mod
+e
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:116: You can't use `macro parameter character #' in vertical mod
+e
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:134: Undefined control sequence
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:165: Missing $ inserted
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:167: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:167: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:168: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:168: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:169: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:169: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:182: Missing $ inserted
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:184: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:184: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:185: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:185: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:186: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:186: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:187: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:187: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:188: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:188: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:189: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:189: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:190: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:190: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:191: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:191: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:192: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:192: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:193: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:193: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:194: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:194: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:195: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:195: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:202: Missing $ inserted
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:204: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:204: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:205: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:205: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:206: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:206: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:207: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:207: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:208: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:208: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:209: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:209: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:210: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:210: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:211: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:211: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:220: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:220: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:221: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:221: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:222: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:222: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:223: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:223: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:224: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:224: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:225: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:225: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:226: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:226: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+Overfull \hbox (56.77371pt too wide) in paragraph at lines 230--239
+[]\tenrm ```r out-liers <- c("Chrysler Im-pe-rial", "Fiat 128", "Toy-ota Coroll
+a") mt-cars3 <- mt-cars2[!is.element(rownames(mtcars2),|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm \ (ligature ``)
+.\tenrm `
+.\tenrm r
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.etc.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:246: Missing $ inserted
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:248: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:248: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:249: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:249: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:250: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:250: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:251: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:251: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:252: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:252: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:258: Missing $ inserted
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:260: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+C:/Users/YuXuan/Documents/Github/datasciencecoursera/7-regression-models/assess
+ment/report.md:260: You can't use `macro parameter character #' in horizontal m
+ode
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+ [2] )<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.
+pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb
+><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C
+:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on report.pdf (2 pages, 58107 bytes).
+PDF statistics:
+ 25 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
