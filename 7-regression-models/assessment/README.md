@@ -2,7 +2,6 @@
 output: pdf_document
 ---
 
-\begin{document}
 
 Is an automatic or manual transmission better for MPG?
 ======================================================
@@ -72,7 +71,8 @@ The p-values of the coefficients of this model were as followed.
 ```
 
 By ranking the p-value of the coefficients in the ascending order,
-I removed the variables corresponding to the 3 least significant coefficients.
+I removed the variables corresponding to the 3 least significant coefficients 
+(`cyl, vsIengine, carb`).
 The variable for quarter mile time was also removed since it was not a manufacturer specification
 and, hence, the coefficient would be difficult to interprete.
 
@@ -259,5 +259,3 @@ print(CI <- coef5[4, 1] + c(-1, 1) * qt(0.975, df = fit5$df))
 ```
 ## [1] -1.554  2.565
 ```
-
-\end{document}
