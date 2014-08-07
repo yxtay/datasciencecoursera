@@ -1,0 +1,117 @@
+Merging and Analysis of Smartphone Sensors Dataset
+==================================================
+
+## Reading the data
+
+First, the file `run_analysis.R` should be in the same directory as the folder `UCI HAR Dataset`.
+The datasets were contained in a few files the "UCI HAR Dataset" directory and subdirectories.
+
+```{r}
+if(!file.exists("UCI HAR Dataset")) unzip("getdata-projectfiles-UCI HAR Dataset.zip")
+```
+
+The names and directories of the files were first assigned to the `files` variable 
+and rearranged such the the datasets for the test sets were first, followed by the train sets.
+
+```{r}
+files <- paste("UCI HAR Dataset", c("test", "train"),
+               c("subject_test.txt", "subject_train.txt", "y_test.txt", "y_train.txt", "X_test.txt", "X_train.txt"),
+               sep = "/")
+print(files <- files[c(1,3,5,2,4,6)])
+```
+
+Next, the datasets were read in one go with the `lapply()` function.
+The datasets were then combined using `rbind()` to create 2 data frames for test and train respectively.
+These 2 resulting data frames were then combined using `cbind()` to create 1 data frame of all the data.
+
+```{r}
+df_list <- lapply(files, read.table)
+df_test <- cbind(df_list[[1]], df_list[[2]], df_list[[3]])
+df_train <- cbind(df_list[[4]], df_list[[5]], df_list[[6]])
+df <- rbind(df_test, df_train)
+rm(df_list, df_test, df_train)
+```
+
+# Selecting and naming variables
+
+The next step was to select the required variables and give them appropriate labels.
+
+There were 561 variables for the sensor data and it would be time consuming to name them from scratch.
+Fortunately, there was a text file in the directory containing appropriate labels, so it was read in.
+
+```{r}
+features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactors=F)[, 2]
+names(df) <- c("Subject", "Activity", features)
+head(names(df))
+```
+
+At this stage, it would be wise to select only the required variables to reduce the size of the dataset.
+The required variables were the measurements on the mean and standard deviation of each measurement.
+After looking through the files describing the features,
+it was apparent that those were the variables with "mean()" or "std()" in their names.
+Hence, I used the `grep()` function to scan the variables for those string with a regular expression.
+Columns 1 and 2 are necessary since they are the subject and activity variables respectively.
+Only these variables were kept.
+
+```{r}
+colID <- grep("(mean|std)\\(\\)", names(df))
+colID <- c(1:2, colID)
+df <- df[, colID]
+```
+
+Next, the variable names were cleaned up so that they were appropriate and descriptive.
+This was done by removing `()` and `-` from them using the `gsub()` function.
+Short labels were also replaced with their original forms.
+They were then asssigned to the data frame.
+
+```{r}
+colnames <- names(df)
+colnames <- gsub("\\(\\)", "", colnames)
+colnames <- gsub("-", "", colnames)
+colnames <- gsub("^t", "TimeDomain", colnames)
+colnames <- gsub("^f", "FrequencyDomain", colnames)
+colnames <- gsub("Acc", "Accelerator", colnames)
+colnames <- gsub("Gyro", "Gyroscope", colnames)
+colnames <- gsub("Mag", "Magnitude", colnames)
+colnames <- gsub("mean", "Mean", colnames)
+colnames <- gsub("std", "StandardDeviation", colnames)
+colnames <- gsub("X$", "XDirection", colnames)
+colnames <- gsub("Y$", "YDirection", colnames)
+colnames <- gsub("Z$", "ZDirection", colnames)
+colnames <- gsub("BodyBody", "Body", colnames)
+names(df) <- colnames
+head(names(df))
+```
+
+## Labeling the activities
+
+The data in the activity variable were given in integers 1 to 6 to represent 6 different activities.
+They can be given appropriate labels with the code that followed.
+The activity labels were first read from one of the descriptive files.
+The activity variable was then converted to a factor with the activity labels.
+
+```{r}
+library(plyr)
+activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt", stringsAsFactors=F,
+                              col.names = c("level", "label"))
+print(activity_labels <- mutate(activity_labels, label = gsub("_", " ", tolower(label))))
+df$Activity <- with(activity_labels, factor(df$Activity, levels = level, labels = label))
+```
+
+The structure of the dataset after all the merging and cleaning was shown as followed.
+
+```{r}
+str(df)
+```
+
+## Computing the mean of each variable by activity and subject
+
+This can be achieved using the `ddply()` function 
+together with the `colwise` function from the `plyr` package.
+The resulting data frame was saved in "tidy_data.txt".
+It can be read into R using `read.table()`.
+
+```{r}
+df_mean <- ddply(df, .(Activity, Subject), colwise(mean))
+write.table(df_mean, "tidy_data.txt", row.names=F)
+```

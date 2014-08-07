@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Merging and Analysis of Smartphone Sensors Dataset</title>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Merging and Analysis of Smartphone Sensors Dataset</h1>
+
+<h2>Reading the data</h2>
+
+<p>First, the file <code>run_analysis.R</code> should be in the same directory as the folder <code>UCI HAR Dataset</code>.
+The datasets were contained in a few files the &ldquo;UCI HAR Dataset&rdquo; directory and subdirectories.</p>
+
+<pre><code class="r">if(!file.exists(&quot;UCI HAR Dataset&quot;)) unzip(&quot;getdata-projectfiles-UCI HAR Dataset.zip&quot;)
+</code></pre>
+
+<p>The names and directories of the files were first assigned to the <code>files</code> variable 
+and rearranged such the the datasets for the test sets were first, followed by the train sets.</p>
+
+<pre><code class="r">files &lt;- paste(&quot;UCI HAR Dataset&quot;, c(&quot;test&quot;, &quot;train&quot;),
+               c(&quot;subject_test.txt&quot;, &quot;subject_train.txt&quot;, &quot;y_test.txt&quot;, &quot;y_train.txt&quot;, &quot;X_test.txt&quot;, &quot;X_train.txt&quot;),
+               sep = &quot;/&quot;)
+print(files &lt;- files[c(1,3,5,2,4,6)])
+</code></pre>
+
+<pre><code>## [1] &quot;UCI HAR Dataset/test/subject_test.txt&quot;  
+## [2] &quot;UCI HAR Dataset/test/y_test.txt&quot;        
+## [3] &quot;UCI HAR Dataset/test/X_test.txt&quot;        
+## [4] &quot;UCI HAR Dataset/train/subject_train.txt&quot;
+## [5] &quot;UCI HAR Dataset/train/y_train.txt&quot;      
+## [6] &quot;UCI HAR Dataset/train/X_train.txt&quot;
+</code></pre>
+
+<p>Next, the datasets were read in one go with the <code>lapply()</code> function.
+The datasets were then combined using <code>rbind()</code> to create 2 data frames for test and train respectively.
+These 2 resulting data frames were then combined using <code>cbind()</code> to create 1 data frame of all the data.</p>
+
+<pre><code class="r">df_list &lt;- lapply(files, read.table)
+df_test &lt;- cbind(df_list[[1]], df_list[[2]], df_list[[3]])
+df_train &lt;- cbind(df_list[[4]], df_list[[5]], df_list[[6]])
+df &lt;- rbind(df_test, df_train)
+rm(df_list, df_test, df_train)
+</code></pre>
+
+<h1>Selecting and naming variables</h1>
+
+<p>The next step was to select the required variables and give them appropriate labels.</p>
+
+<p>There were 561 variables for the sensor data and it would be time consuming to name them from scratch.
+Fortunately, there was a text file in the directory containing appropriate labels, so it was read in.</p>
+
+<pre><code class="r">features &lt;- read.table(&quot;UCI HAR Dataset/features.txt&quot;, stringsAsFactors=F)[, 2]
+names(df) &lt;- c(&quot;Subject&quot;, &quot;Activity&quot;, features)
+head(names(df))
+</code></pre>
+
+<pre><code>## [1] &quot;Subject&quot;           &quot;Activity&quot;          &quot;tBodyAcc-mean()-X&quot;
+## [4] &quot;tBodyAcc-mean()-Y&quot; &quot;tBodyAcc-mean()-Z&quot; &quot;tBodyAcc-std()-X&quot;
+</code></pre>
+
+<p>At this stage, it would be wise to select only the required variables to reduce the size of the dataset.
+The required variables were the measurements on the mean and standard deviation of each measurement.
+After looking through the files describing the features,
+it was apparent that those were the variables with &ldquo;mean()&rdquo; or &ldquo;std()&rdquo; in their names.
+Hence, I used the <code>grep()</code> function to scan the variables for those string with a regular expression.
+Columns 1 and 2 are necessary since they are the subject and activity variables respectively.
+Only these variables were kept.</p>
+
+<pre><code class="r">colID &lt;- grep(&quot;(mean|std)\\(\\)&quot;, names(df))
+colID &lt;- c(1:2, colID)
+df &lt;- df[, colID]
+</code></pre>
+
+<p>Next, the variable names were cleaned up so that they were appropriate and descriptive.
+This was done by removing <code>()</code> and <code>-</code> from them using the <code>gsub()</code> function.
+Short labels were also replaced with their original forms.
+They were then asssigned to the data frame.</p>
+
+<pre><code class="r">colnames &lt;- names(df)
+colnames &lt;- gsub(&quot;\\(\\)&quot;, &quot;&quot;, colnames)
+colnames &lt;- gsub(&quot;-&quot;, &quot;&quot;, colnames)
+colnames &lt;- gsub(&quot;^t&quot;, &quot;TimeDomain&quot;, colnames)
+colnames &lt;- gsub(&quot;^f&quot;, &quot;FrequencyDomain&quot;, colnames)
+colnames &lt;- gsub(&quot;Acc&quot;, &quot;Accelerator&quot;, colnames)
+colnames &lt;- gsub(&quot;Gyro&quot;, &quot;Gyroscope&quot;, colnames)
+colnames &lt;- gsub(&quot;Mag&quot;, &quot;Magnitude&quot;, colnames)
+colnames &lt;- gsub(&quot;mean&quot;, &quot;Mean&quot;, colnames)
+colnames &lt;- gsub(&quot;std&quot;, &quot;StandardDeviation&quot;, colnames)
+colnames &lt;- gsub(&quot;X$&quot;, &quot;XDirection&quot;, colnames)
+colnames &lt;- gsub(&quot;Y$&quot;, &quot;YDirection&quot;, colnames)
+colnames &lt;- gsub(&quot;Z$&quot;, &quot;ZDirection&quot;, colnames)
+colnames &lt;- gsub(&quot;BodyBody&quot;, &quot;Body&quot;, colnames)
+names(df) &lt;- colnames
+head(names(df))
+</code></pre>
+
+<pre><code>## [1] &quot;Subject&quot;                                             
+## [2] &quot;Activity&quot;                                            
+## [3] &quot;TimeDomainBodyAcceleratorMeanXDirection&quot;             
+## [4] &quot;TimeDomainBodyAcceleratorMeanYDirection&quot;             
+## [5] &quot;TimeDomainBodyAcceleratorMeanZDirection&quot;             
+## [6] &quot;TimeDomainBodyAcceleratorStandardDeviationXDirection&quot;
+</code></pre>
+
+<h2>Labeling the activities</h2>
+
+<p>The data in the activity variable were given in integers 1 to 6 to represent 6 different activities.
+They can be given appropriate labels with the code that followed.
+The activity labels were first read from one of the descriptive files.
+The activity variable was then converted to a factor with the activity labels.</p>
+
+<pre><code class="r">library(plyr)
+activity_labels &lt;- read.table(&quot;UCI HAR Dataset/activity_labels.txt&quot;, stringsAsFactors=F,
+                              col.names = c(&quot;level&quot;, &quot;label&quot;))
+print(activity_labels &lt;- mutate(activity_labels, label = gsub(&quot;_&quot;, &quot; &quot;, tolower(label))))
+</code></pre>
+
+<pre><code>##   level              label
+## 1     1            walking
+## 2     2   walking upstairs
+## 3     3 walking downstairs
+## 4     4            sitting
+## 5     5           standing
+## 6     6             laying
+</code></pre>
+
+<pre><code class="r">df$Activity &lt;- with(activity_labels, factor(df$Activity, levels = level, labels = label))
+</code></pre>
+
+<p>The structure of the dataset after all the merging and cleaning was shown as followed.</p>
+
+<pre><code class="r">str(df)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    10299 obs. of  68 variables:
+##  $ Subject                                                      : int  2 2 2 2 2 2 2 2 2 2 ...
+##  $ Activity                                                     : Factor w/ 6 levels &quot;walking&quot;,&quot;walking upstairs&quot;,..: 5 5 5 5 5 5 5 5 5 5 ...
+##  $ TimeDomainBodyAcceleratorMeanXDirection                      : num  0.257 0.286 0.275 0.27 0.275 ...
+##  $ TimeDomainBodyAcceleratorMeanYDirection                      : num  -0.0233 -0.0132 -0.0261 -0.0326 -0.0278 ...
+##  $ TimeDomainBodyAcceleratorMeanZDirection                      : num  -0.0147 -0.1191 -0.1182 -0.1175 -0.1295 ...
+##  $ TimeDomainBodyAcceleratorStandardDeviationXDirection         : num  -0.938 -0.975 -0.994 -0.995 -0.994 ...
+##  $ TimeDomainBodyAcceleratorStandardDeviationYDirection         : num  -0.92 -0.967 -0.97 -0.973 -0.967 ...
+##  $ TimeDomainBodyAcceleratorStandardDeviationZDirection         : num  -0.668 -0.945 -0.963 -0.967 -0.978 ...
+##  $ TimeDomainGravityAcceleratorMeanXDirection                   : num  0.936 0.927 0.93 0.929 0.927 ...
+##  $ TimeDomainGravityAcceleratorMeanYDirection                   : num  -0.283 -0.289 -0.288 -0.293 -0.303 ...
+##  $ TimeDomainGravityAcceleratorMeanZDirection                   : num  0.115 0.153 0.146 0.143 0.138 ...
+##  $ TimeDomainGravityAcceleratorStandardDeviationXDirection      : num  -0.925 -0.989 -0.996 -0.993 -0.996 ...
+##  $ TimeDomainGravityAcceleratorStandardDeviationYDirection      : num  -0.937 -0.984 -0.988 -0.97 -0.971 ...
+##  $ TimeDomainGravityAcceleratorStandardDeviationZDirection      : num  -0.564 -0.965 -0.982 -0.992 -0.968 ...
+##  $ TimeDomainBodyAcceleratorJerkMeanXDirection                  : num  0.072 0.0702 0.0694 0.0749 0.0784 ...
+##  $ TimeDomainBodyAcceleratorJerkMeanYDirection                  : num  0.04575 -0.01788 -0.00491 0.03227 0.02228 ...
+##  $ TimeDomainBodyAcceleratorJerkMeanZDirection                  : num  -0.10604 -0.00172 -0.01367 0.01214 0.00275 ...
+##  $ TimeDomainBodyAcceleratorJerkStandardDeviationXDirection     : num  -0.907 -0.949 -0.991 -0.991 -0.992 ...
+##  $ TimeDomainBodyAcceleratorJerkStandardDeviationYDirection     : num  -0.938 -0.973 -0.971 -0.973 -0.979 ...
+##  $ TimeDomainBodyAcceleratorJerkStandardDeviationZDirection     : num  -0.936 -0.978 -0.973 -0.976 -0.987 ...
+##  $ TimeDomainBodyGyroscopeMeanXDirection                        : num  0.11998 -0.00155 -0.04821 -0.05664 -0.05999 ...
+##  $ TimeDomainBodyGyroscopeMeanYDirection                        : num  -0.0918 -0.1873 -0.1663 -0.126 -0.0847 ...
+##  $ TimeDomainBodyGyroscopeMeanZDirection                        : num  0.1896 0.1807 0.1542 0.1183 0.0787 ...
+##  $ TimeDomainBodyGyroscopeStandardDeviationXDirection           : num  -0.883 -0.926 -0.973 -0.968 -0.975 ...
+##  $ TimeDomainBodyGyroscopeStandardDeviationYDirection           : num  -0.816 -0.93 -0.979 -0.975 -0.978 ...
+##  $ TimeDomainBodyGyroscopeStandardDeviationZDirection           : num  -0.941 -0.968 -0.976 -0.963 -0.968 ...
+##  $ TimeDomainBodyGyroscopeJerkMeanXDirection                    : num  -0.2049 -0.1387 -0.0978 -0.1022 -0.0918 ...
+##  $ TimeDomainBodyGyroscopeJerkMeanYDirection                    : num  -0.1745 -0.0258 -0.0342 -0.0447 -0.029 ...
+##  $ TimeDomainBodyGyroscopeJerkMeanZDirection                    : num  -0.0934 -0.0714 -0.06 -0.0534 -0.0612 ...
+##  $ TimeDomainBodyGyroscopeJerkStandardDeviationXDirection       : num  -0.901 -0.962 -0.984 -0.984 -0.988 ...
+##  $ TimeDomainBodyGyroscopeJerkStandardDeviationYDirection       : num  -0.911 -0.956 -0.988 -0.99 -0.992 ...
+##  $ TimeDomainBodyGyroscopeJerkStandardDeviationZDirection       : num  -0.939 -0.981 -0.976 -0.981 -0.982 ...
+##  $ TimeDomainBodyAcceleratorMagnitudeMean                       : num  -0.867 -0.969 -0.976 -0.974 -0.976 ...
+##  $ TimeDomainBodyAcceleratorMagnitudeStandardDeviation          : num  -0.705 -0.954 -0.979 -0.977 -0.977 ...
+##  $ TimeDomainGravityAcceleratorMagnitudeMean                    : num  -0.867 -0.969 -0.976 -0.974 -0.976 ...
+##  $ TimeDomainGravityAcceleratorMagnitudeStandardDeviation       : num  -0.705 -0.954 -0.979 -0.977 -0.977 ...
+##  $ TimeDomainBodyAcceleratorJerkMagnitudeMean                   : num  -0.93 -0.974 -0.982 -0.983 -0.987 ...
+##  $ TimeDomainBodyAcceleratorJerkMagnitudeStandardDeviation      : num  -0.896 -0.941 -0.971 -0.975 -0.989 ...
+##  $ TimeDomainBodyGyroscopeMagnitudeMean                         : num  -0.796 -0.898 -0.939 -0.947 -0.957 ...
+##  $ TimeDomainBodyGyroscopeMagnitudeStandardDeviation            : num  -0.762 -0.911 -0.972 -0.97 -0.969 ...
+##  $ TimeDomainBodyGyroscopeJerkMagnitudeMean                     : num  -0.925 -0.973 -0.987 -0.989 -0.99 ...
+##  $ TimeDomainBodyGyroscopeJerkMagnitudeStandardDeviation        : num  -0.894 -0.944 -0.984 -0.986 -0.99 ...
+##  $ FrequencyDomainBodyAcceleratorMeanXDirection                 : num  -0.919 -0.961 -0.992 -0.993 -0.992 ...
+##  $ FrequencyDomainBodyAcceleratorMeanYDirection                 : num  -0.918 -0.964 -0.965 -0.968 -0.969 ...
+##  $ FrequencyDomainBodyAcceleratorMeanZDirection                 : num  -0.789 -0.957 -0.967 -0.967 -0.98 ...
+##  $ FrequencyDomainBodyAcceleratorStandardDeviationXDirection    : num  -0.948 -0.984 -0.995 -0.996 -0.995 ...
+##  $ FrequencyDomainBodyAcceleratorStandardDeviationYDirection    : num  -0.925 -0.97 -0.974 -0.977 -0.967 ...
+##  $ FrequencyDomainBodyAcceleratorStandardDeviationZDirection    : num  -0.636 -0.942 -0.962 -0.969 -0.978 ...
+##  $ FrequencyDomainBodyAcceleratorJerkMeanXDirection             : num  -0.9 -0.944 -0.991 -0.991 -0.991 ...
+##  $ FrequencyDomainBodyAcceleratorJerkMeanYDirection             : num  -0.937 -0.969 -0.973 -0.972 -0.98 ...
+##  $ FrequencyDomainBodyAcceleratorJerkMeanZDirection             : num  -0.924 -0.973 -0.972 -0.97 -0.983 ...
+##  $ FrequencyDomainBodyAcceleratorJerkStandardDeviationXDirection: num  -0.924 -0.962 -0.992 -0.992 -0.994 ...
+##  $ FrequencyDomainBodyAcceleratorJerkStandardDeviationYDirection: num  -0.943 -0.98 -0.971 -0.975 -0.979 ...
+##  $ FrequencyDomainBodyAcceleratorJerkStandardDeviationZDirection: num  -0.948 -0.981 -0.972 -0.981 -0.989 ...
+##  $ FrequencyDomainBodyGyroscopeMeanXDirection                   : num  -0.824 -0.923 -0.973 -0.972 -0.976 ...
+##  $ FrequencyDomainBodyGyroscopeMeanYDirection                   : num  -0.808 -0.926 -0.981 -0.981 -0.98 ...
+##  $ FrequencyDomainBodyGyroscopeMeanZDirection                   : num  -0.918 -0.968 -0.972 -0.967 -0.969 ...
+##  $ FrequencyDomainBodyGyroscopeStandardDeviationXDirection      : num  -0.903 -0.927 -0.973 -0.967 -0.974 ...
+##  $ FrequencyDomainBodyGyroscopeStandardDeviationYDirection      : num  -0.823 -0.932 -0.977 -0.972 -0.977 ...
+##  $ FrequencyDomainBodyGyroscopeStandardDeviationZDirection      : num  -0.956 -0.97 -0.979 -0.965 -0.97 ...
+##  $ FrequencyDomainBodyAcceleratorMagnitudeMean                  : num  -0.791 -0.954 -0.976 -0.973 -0.978 ...
+##  $ FrequencyDomainBodyAcceleratorMagnitudeStandardDeviation     : num  -0.711 -0.96 -0.984 -0.982 -0.979 ...
+##  $ FrequencyDomainBodyAcceleratorJerkMagnitudeMean              : num  -0.895 -0.945 -0.971 -0.972 -0.987 ...
+##  $ FrequencyDomainBodyAcceleratorJerkMagnitudeStandardDeviation : num  -0.896 -0.934 -0.97 -0.978 -0.99 ...
+##  $ FrequencyDomainBodyGyroscopeMagnitudeMean                    : num  -0.771 -0.924 -0.975 -0.976 -0.977 ...
+##  $ FrequencyDomainBodyGyroscopeMagnitudeStandardDeviation       : num  -0.797 -0.917 -0.974 -0.971 -0.97 ...
+##  $ FrequencyDomainBodyGyroscopeJerkMagnitudeMean                : num  -0.89 -0.952 -0.986 -0.986 -0.99 ...
+##  $ FrequencyDomainBodyGyroscopeJerkMagnitudeStandardDeviation   : num  -0.907 -0.938 -0.983 -0.986 -0.991 ...
+</code></pre>
+
+<h2>Computing the mean of each variable by activity and subject</h2>
+
+<p>This can be achieved using the <code>ddply()</code> function 
+together with the <code>colwise</code> function from the <code>plyr</code> package.
+The resulting data frame was saved in &ldquo;tidy_data.txt&rdquo;.
+It can be read into R using <code>read.table()</code>.</p>
+
+<pre><code class="r">df_mean &lt;- ddply(df, .(Activity, Subject), colwise(mean))
+write.table(df_mean, &quot;tidy_data.txt&quot;, row.names=F)
+</code></pre>
+
+</body>
+
+</html>
