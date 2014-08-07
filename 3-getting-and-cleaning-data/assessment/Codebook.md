@@ -1,276 +1,279 @@
 Codebook for tidy_data.txt
 ==========================
 
-There are a total of 68 variables.
+Variables
+---------
 
-- activity
+There were a total of 68 variables.
 
-labels for 6 different activities: walking, walking upstairs, walking downstairs, sitting, standing and laying
+**Subject**
 
-- subject
+- labels for 6 different activities: walking, walking upstairs, walking downstairs, sitting, standing and laying
 
-unique identified for each of the 30 volunteers
+**Activity**
 
-- tBodyAccMeanX
+- unique integer identifier for each of the 30 volunteers
+ 
+**TimeDomainBodyAccelerometerMeanXDirection**
 
-mean body acceleration time domain signal in the X direction
+- mean of mean body accelerometer time domain signal in the X direction in seconds
 
-- tBodyAccMeanY
+**TimeDomainBodyAccelerometerMeanYDirection**
 
-mean body acceleration time domain signal in the Y direction
+- mean of mean body accelerometer time domain signal in the Y direction in seconds
 
-- tBodyAccMeanZ
+**TimeDomainBodyAccelerometerMeanZDirection**
 
-mean body acceleration time domain signal in the Z direction
+- mean of mean body accelerometer time domain signal in the Z direction in seconds
 
-- tBodyAccStdX
+**TimeDomainBodyAccelerometerStandardDeviationXDirection**
 
-standard deviation of body acceleration time domain signal in the X direction
+- mean of standard deviation of body accelerometer time domain signal in the X direction in seconds
 
-- tBodyAccStdY
+**TimeDomainBodyAccelerometerStandardDeviationYDirection**
 
-standard deviation of body acceleration time domain signal in the Y direction
+- mean of standard deviation of body accelerometer time domain signal in the Y direction in seconds
 
-- tBodyAccStdZ
+**TimeDomainBodyAccelerometerStandardDeviationZDirection**
 
-standard deviation of body acceleration time domain signal in the X direction
+- mean of standard deviation of body accelerometer time domain signal in the X direction in seconds
 
-- tGravityAccMeanX
+**TimeDomainGravityAccelerometerMeanXDirection**
 
-mean gravity acceleration time domain signal in the X direction
+- mean of mean gravity accelerometer time domain signal in the X direction in seconds
 
-- tGravityAccMeanY
+**TimeDomainGravityAccelerometerMeanYDirection**
 
-mean gravity acceleration time domain signal in the Y direction
+- mean of mean gravity accelerometer time domain signal in the Y direction in seconds
 
-- tGravityAccMeanZ
+**TimeDomainGravityAccelerometerMeanZDirection**
 
-mean gravity acceleration time domain signal in the Z direction
+- mean of mean gravity accelerometer time domain signal in the Z direction in seconds
 
-- tGravityAccStdX
+**TimeDomainGravityAccelerometerStandardDeviationXDirection**
 
-standard deviation of gravity acceleration time domain signal in the X direction
+- mean of standard deviation of gravity accelerometer time domain signal in the X direction in seconds
 
-- tGravityAccStdY
+**TimeDomainGravityAccelerometerStandardDeviationYDirection**
 
-standard deviation of gravity acceleration time domain signal in the Y direction
+- mean of standard deviation of gravity accelerometer time domain signal in the Y direction in seconds
 
-- tGravityAccStdZ
+**TimeDomainGravityAccelerometerStandardDeviationZDirection**
 
-standard deviation of gravity acceleration time domain signal in the Z direction
+- mean of standard deviation of gravity accelerometer time domain signal in the Z direction in seconds
 
-- tBodyAccJerkMeanX
+**TimeDomainBodyAccelerometerJerkMeanXDirection**
 
-mean body acceleration jerk time domain signal in the X direction
+- mean of mean body accelerometer jerk time domain signal in the X direction in seconds
 
-- tBodyAccJerkMeanY
+**TimeDomainBodyAccelerometerJerkMeanYDirection**
 
-mean body acceleration jerk time domain signal in the Y direction
+- mean of mean body accelerometer jerk time domain signal in the Y direction in seconds
 
-- tBodyAccJerkMeanZ
+**TimeDomainBodyAccelerometerJerkMeanZDirection**
 
-mean body acceleration jerk time domain signal in the Z direction
+- mean of mean body accelerometer jerk time domain signal in the Z direction in seconds
 
-- tBodyAccJerkStdX
+**TimeDomainBodyAccelerometerJerkStandardDeviationXDirection**
 
-standard deviation of body acceleration jerk time domain signal in the X direction
+- mean of standard deviation of body accelerometer jerk time domain signal in the X direction in seconds
 
-- tBodyAccJerkStdY
+**TimeDomainBodyAccelerometerJerkStandardDeviationYDirection**
 
-standard deviation of body acceleration jerk time domain signal in the Y direction
+- mean of standard deviation of body accelerometer jerk time domain signal in the Y direction in seconds
 
-- tBodyAccJerkStdZ
+**TimeDomainBodyAccelerometerJerkStandardDeviationZDirection**
 
-standard deviation of body acceleration jerk time domain signal in the Z direction
+- mean of standard deviation of body accelerometer jerk time domain signal in the Z direction in seconds
 
-- tBodyGyroMeanX
+**TimeDomainBodyGyroscopeMeanXDirection**
 
-mean body gyroscope time domain signal in the X direction
+- mean of mean body gyroscope time domain signal in the X direction in seconds
 
-- tBodyGyroMeanY
+**TimeDomainBodyGyroscopeMeanYDirection**
 
-mean body gyroscope time domain signal in the Y direction
+- mean of mean body gyroscope time domain signal in the Y direction in seconds
 
-- tBodyGyroMeanZ
+**TimeDomainBodyGyroscopeMeanZDirection**
 
-mean body gyroscope time domain signal in the Z direction
+- mean of mean body gyroscope time domain signal in the Z direction in seconds
 
-- tBodyGyroStdX
+**TimeDomainBodyGyroscopeStandardDeviationXDirection**
 
-standard deviation of body gyroscope time domain signal in the X direction
+- mean of standard deviation of body gyroscope time domain signal in the X direction in seconds
 
-- tBodyGyroStdY
+**TimeDomainBodyGyroscopeStandardDeviationYDirection**
 
-standard deviation of body gyroscope time domain signal in the Y direction
+- mean of standard deviation of body gyroscope time domain signal in the Y direction in seconds
 
-- tBodyGyroStdZ
+**TimeDomainBodyGyroscopeStandardDeviationZDirection**
 
-standard deviation of body gyroscope time domain signal in the Z direction
+- mean of standard deviation of body gyroscope time domain signal in the Z direction in seconds
 
-- tBodyGyroJerkMeanX
+**TimeDomainBodyGyroscopeJerkMeanXDirection**
 
-mean body gyroscope jerk time domain signal in the X direction
+- mean of mean body gyroscope jerk time domain signal in the X direction in seconds
 
-- tBodyGyroJerkMeanY
+**TimeDomainBodyGyroscopeJerkMeanYDirection**
 
-mean body gyroscope jerk time domain signal in the Y direction
+- mean of mean body gyroscope jerk time domain signal in the Y direction in seconds
 
-- tBodyGyroJerkMeanZ
+**TimeDomainBodyGyroscopeJerkMeanZDirection**
 
-mean body gyroscope jerk time domain signal in the Z direction
+- mean of mean body gyroscope jerk time domain signal in the Z direction in seconds
 
-- tBodyGyroJerkStdX
+**TimeDomainBodyGyroscopeJerkStandardDeviationXDirection**
 
-standard deviation of body gyroscope jerk time domain signal in the X direction
+- mean of standard deviation of body gyroscope jerk time domain signal in the X direction in seconds
 
-- tBodyGyroJerkStdY
+**TimeDomainBodyGyroscopeJerkStandardDeviationYDirection**
 
-standard deviation of body gyroscope jerk time domain signal in the Y direction
+- mean of standard deviation of body gyroscope jerk time domain signal in the Y direction in seconds
 
-- tBodyGyroJerkStdZ
+**TimeDomainBodyGyroscopeJerkStandardDeviationZDirection**
 
-standard deviation of body gyroscope jerk time domain signal in the Z direction
+- mean of standard deviation of body gyroscope jerk time domain signal in the Z direction in seconds
 
-- tBodyAccMagMean
+**TimeDomainBodyAccelerometerMagnitudeMean**
 
-mean body acceleration magnitude time domain signal
+- mean of mean body accelerometer magnitude time domain signal in seconds
 
-- tBodyAccMagStd
+**TimeDomainBodyAccelerometerMagnitudeStandardDeviation**
 
-standard deviation of body acceleration magnitude time domain signal
+- mean of standard deviation of body accelerometer magnitude time domain signal in seconds
 
-- tGravityAccMagMean
+**TimeDomainGravityAccelerometerMagnitudeMean**
 
-mean gravity acceleration magnitude time domain signal
+- mean of ean gravity accelerometer magnitude time domain signal in seconds
 
-- tGravityAccMagStd
+**TimeDomainGravityAccelerometerMagnitudeStandardDeviation**
 
-standard deviation of gravity acceleration magnitude time domain signal
+- mean of standard deviation of gravity accelerometer magnitude time domain signal in seconds
 
-- tBodyAccJerkMagMean
+**TimeDomainBodyAccelerometerJerkMagnitudeMean**
 
-mean body acceleration jerk magnitude time domain signal
+- mean of mean body accelerometer jerk magnitude time domain signal in seconds
 
-- tBodyAccJerkMagStd
+**TimeDomainBodyAccelerometerJerkMagnitudeStandardDeviation**
 
-standard deviation of body acceleration jerk magnitude time domain signal
+- mean of standard deviation of body accelerometer jerk magnitude time domain signal in seconds
 
-- tBodyGyroMagMean
+**TimeDomainBodyGyroscopeMagnitudeMean**
 
-mean body gyroscope magnitude time domain signal
+- mean of mean body gyroscope magnitude time domain signal in seconds
 
-- tBodyGyroMagStd
+**TimeDomainBodyGyroscopeMagnitudeStandardDeviation**
 
-standard deviation body gyroscope magnitude time domain signal
+- mean of standard deviation body gyroscope magnitude time domain signal in seconds
 
-- tBodyGyroJerkMagMean
+**TimeDomainBodyGyroscopeJerkMagnitudeMean**
 
-mean body gyroscope jerk magnitude time domain signal
+- mean of mean body gyroscope jerk magnitude time domain signal in seconds
 
-- tBodyGyroJerkMagStd
+**TimeDomainBodyGyroscopeJerkMagnitudeStandardDeviation**
 
-standard deviation body gyroscope jerk magnitude time domain signal
+- mean of standard deviation body gyroscope jerk magnitude time domain signal in seconds
 
-- fBodyAccMeanX
+**FrequencyDomainBodyAccelerometerMeanXDirection**
 
-mean body acceleration frequency domain signal in the X direction
+- mean of mean body accelerometer frequency domain signal in the X direction in hertz
 
-- fBodyAccMeanY
+**FrequencyDomainBodyAccelerometerMeanYDirection**
 
-mean body acceleration frequency domain signal in the Y direction
+- mean of mean body accelerometer frequency domain signal in the Y direction in hertz
 
-- fBodyAccMeanZ
+**FrequencyDomainBodyAccelerometerMeanZDirection**
 
-mean body acceleration frequency domain signal in the Z direction
+- mean of mean body accelerometer frequency domain signal in the Z direction in hertz
 
-- fBodyAccStdX
+**FrequencyDomainBodyAccelerometerStandardDeviationXDirection**
 
-standard deviation of body acceleration frequency domain signal in the X direction
+- mean of standard deviation of body accelerometer frequency domain signal in the X direction in hertz
 
-- fBodyAccStdY
+**FrequencyDomainBodyAccelerometerStandardDeviationYDirection**
 
-standard deviation of body acceleration frequency domain signal in the Y direction
+- mean of standard deviation of body accelerometer frequency domain signal in the Y direction in hertz
 
-- fBodyAccStdZ
+**FrequencyDomainBodyAccelerometerStandardDeviationZDirection**
 
-standard deviation of body acceleration frequency domain signal in the Z direction
+- mean of standard deviation of body accelerometer frequency domain signal in the Z direction in hertz
 
-- fBodyAccJerkMeanX
+**FrequencyDomainBodyAccelerometerJerkMeanXDirection**
 
-mean body acceleration jerk frequency domain signal in the X direction
+- mean of mean body accelerometer jerk frequency domain signal in the X direction in hertz
 
-- fBodyAccJerkMeanY
+**FrequencyDomainBodyAccelerometerJerkMeanYDirection**
 
-mean body acceleration jerk frequency domain signal in the Y direction
+- mean of mean body accelerometer jerk frequency domain signal in the Y direction in hertz
 
-- fBodyAccJerkMeanZ
+**FrequencyDomainBodyAccelerometerJerkMeanZDirection**
 
-mean body acceleration jerk frequency domain signal in the Z direction
+- mean of mean body accelerometer jerk frequency domain signal in the Z direction in hertz
 
-- fBodyAccJerkStdX
+**FrequencyDomainBodyAccelerometerJerkStandardDeviationXDirection**
 
-standard deviation body acceleration jerk frequency domain signal in the X direction
+- mean of standard deviation body accelerometer jerk frequency domain signal in the X direction in hertz
 
-- fBodyAccJerkStdY
+**FrequencyDomainBodyAccelerometerJerkStandardDeviationYDirection**
 
-standard deviation body acceleration jerk frequency domain signal in the Y direction
+- mean of standard deviation body accelerometer jerk frequency domain signal in the Y direction in hertz
 
-- fBodyAccJerkStdZ
+**FrequencyDomainBodyAccelerometerJerkStandardDeviationZDirection**
 
-standard deviation body acceleration jerk frequency domain signal in the Z direction
+- mean of standard deviation body accelerometer jerk frequency domain signal in the Z direction in hertz
 
-- fBodyGyroMeanX
+**FrequencyDomainBodyGyroscopeMeanXDirection**
 
-mean body gyroscope frequency domain signal in the X direction
+- mean of mean body gyroscope frequency domain signal in the X direction in hertz
 
-- fBodyGyroMeanY
+**FrequencyDomainBodyGyroscopeMeanYDirection**
 
-mean body gyroscope frequency domain signal in the Y direction
+- mean of mean body gyroscope frequency domain signal in the Y direction in hertz
 
-- fBodyGyroMeanZ
+**FrequencyDomainBodyGyroscopeMeanZDirection**
 
-mean body gyroscope frequency domain signal in the Z direction
+- mean of mean body gyroscope frequency domain signal in the Z direction in hertz
 
-- fBodyGyroStdX
+**FrequencyDomainBodyGyroscopeStandardDeviationXDirection**
 
-standard deviation of body gyroscope frequency domain signal in the X direction
+- mean of standard deviation of body gyroscope frequency domain signal in the X direction in hertz
 
-- fBodyGyroStdY
+**FrequencyDomainBodyGyroscopeStandardDeviationYDirection**
 
-standard deviation of body gyroscope frequency domain signal in the Y direction
+- mean of standard deviation of body gyroscope frequency domain signal in the Y direction in hertz
 
-- fBodyGyroStdZ
+**FrequencyDomainBodyGyroscopeStandardDeviationZDirection**
 
-standard deviation of body gyroscope frequency domain signal in the Z direction
+- mean of standard deviation of body gyroscope frequency domain signal in the Z direction in hertz
 
-- fBodyAccMagMean
+**FrequencyDomainBodyAccelerometerMagnitudeMean**
 
-mean body acceleration magnitude frequency domain signal
+- mean of mean body accelerometer magnitude frequency domain signal in hertz
 
-- fBodyAccMagStd
+**FrequencyDomainBodyAccelerometerMagnitudeStandardDeviation**
 
-standard deviation of body acceleration magnitude frequency domain signal
+- mean of standard deviation of body accelerometer magnitude frequency domain signal in hertz
 
-- fBodyBodyAccJerkMagMean
+**FrequencyDomainBodyAccelerometerJerkMagnitudeMean**
 
-mean body acceleration jerk magnitude frequency domain signal
+- mean of mean body accelerometer jerk magnitude frequency domain signal in hertz
 
-- fBodyBodyAccJerkMagStd
+**FrequencyDomainBodyAccelerometerJerkMagnitudeStandardDeviation**
 
-standard deviation of body acceleration jerk magnitude frequency domain signal
+- mean of standard deviation of body accelerometer jerk magnitude frequency domain signal in hertz
 
-- fBodyBodyGyroMagMean
+**FrequencyDomainBodyGyroscopeMagnitudeMean**
 
-mean body gyroscope magnitude frequency domain signal
+- mean of mean body gyroscope magnitude frequency domain signal in hertz
 
-- fBodyBodyGyroMagStd
+**FrequencyDomainBodyGyroscopeMagnitudeStandardDeviation**
 
-standard deviation body gyroscope magnitude frequency domain signal
+- mean of standard deviation of body gyroscope magnitude frequency domain signal in hertz
 
-- fBodyBodyGyroJerkMagMean
+**FrequencyDomainBodyGyroscopeJerkMagnitudeMean**
 
-mean body gyroscope jerk magnitude frequency domain signal
+- mean of mean body gyroscope jerk magnitude frequency domain signal in hertz
 
-- fBodyBodyGyroJerkMagStd
+**FrequencyDomainBodyGyroscopeJerkMagnitudeStandardDeviation**
 
-standard deviation body gyroscope jerk magnitude frequency domain signal
+- mean of standard deviation of body gyroscope jerk magnitude frequency domain signal in hertz
