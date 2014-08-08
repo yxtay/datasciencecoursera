@@ -118,7 +118,7 @@ storm_df3 <- subset(storm_df2, totaldmg != 0 | casualties != 0,
 
 To focus our clean up efforts on the events that sustain large costs, it would be wise
 to rank the events by total costs and handle the events that were responsible for,
-say, 99% of the total costs. To do this, the costs were summed together by event type.
+say, 99% of the total costs. To do this, the costs were summed together by the raw event type.
 They were then sorted and the cumulative sum was computed to identify the cutoff
 for 99% of the total costs.
 
@@ -135,8 +135,8 @@ print(n <- sapply(storm_sum[, c(4,7)],
 ##         44         22
 ```
 
-For human costs, the top 44 events accounted for at least 99% of total,
-while for economic consequence, it was the top 22 events.
+For human costs, the top 44 raw event types accounted for at least 99% of total,
+while for economic consequence, it was the top 22  raw event types.
 
 
 ```r
@@ -151,13 +151,13 @@ print(id <- sort(unique(do.call(c, id_list))))
 ```
 
 Next, the indexes of of those event type were identified. 
-The number of events involved at this stage was 48, substantially lower than
+The number of raw event types involved at this stage was 48, substantially lower than
 what we began with initially.
 
 The event types corresponding to these indexes were then extracted. Those that were not in the 
-list of 48 recognised weather events were assigned the most appropriate labels.
+list of 48 recognised weather event types were assigned the most appropriate labels.
 The rest of the unextracted event types were assigned to "others".
-A check was done to ensure all assigned event type came from the official list.
+A check was done to ensure all assigned event types came from the official list.
 
 
 ```r
@@ -231,7 +231,7 @@ In the end, only 31 event types remained.
 Results
 -------
 
-To simplify comparison, the evens were ranked by cost of interest and plotted in a barplot.
+To simplify comparison, the event types were ranked by cost of interest and plotted in a barplot.
 
 
 ```r
@@ -262,6 +262,6 @@ legend("topright", legend = c("Crop", "Property"), fill = 4:3, bty = "n")
 <img src="figure/totaldmg.png" title="plot of chunk totaldmg" alt="plot of chunk totaldmg" style="display: block; margin: auto;" />
 
 In terms of events with greatest economic consequences, flood was clearly the most significant.
-Hurricane, storm surge and tornado events also caused large property damages. 
-Comparatively, the remaining events did not cause as excessive damages to property,
-hence, it would be paramount to focus efforts to the top 4 events first to reduce property damages.
+Hurricane, storm surge and tornado events also caused large economic damages. 
+Comparatively, the remaining events did not cause as excessive damages,
+hence, it would be paramount to focus efforts to the top 4 events first to reduce economic damages.
