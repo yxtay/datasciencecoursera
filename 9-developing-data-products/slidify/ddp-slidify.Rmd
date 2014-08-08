@@ -31,16 +31,28 @@ tweaking those parameters and observe how they affect the estimator in a plot?
 
 ## Presenting my [Shiny app](https://yxtay.shinyapps.io/DataProd_Shiny/)
 
-<img src="assets/fig/plot.png" title="plot of chunk plot" alt="plot of chunk plot" style="display: block; margin: auto;" />
+```{r plot, echo=FALSE, fig.align='center', fig.width=10}
+with(cars, {
+    plot(speed, dist, pch = 20, cex = 2,
+         main = "Stopping Distance of Cars against Speed",
+         xlab = "Speed (mph)", ylab = "Stopping distance (ft)")
+    lines(ksmooth(speed, dist, kernel = "normal", bandwidth = 2), 
+          col = 2, lwd = 2)
+    lines(ksmooth(speed, dist, kernel = "normal", bandwidth = 5), 
+          col = 3, lwd = 2)
+    legend("topleft", legend = c("Smoother 1", "Smoother 2"), col = 2:3, lwd = 2, bty = "n")
+})
+```
 
 ---
 
 ## Codes
 
+```{r input, echo=FALSE}
+    input <- list(kern1 = "normal", bw1 = 2, kern2 = "normal", bw2 = 5)
+```
 
-
-
-```r
+```{r codes, fig.show='hide'}
 with(cars, {
     plot(speed, dist, pch = 20, cex = 2,
          main = "Stopping Distance of Cars against Speed",
