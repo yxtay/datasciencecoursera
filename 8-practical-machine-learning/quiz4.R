@@ -63,9 +63,9 @@ inTrain = createDataPartition(concrete$CompressiveStrength, p = 3/4)[[1]]
 training = concrete[ inTrain,]
 testing = concrete[-inTrain,]
 
-set.seet(233)
-modelLASSO <- enet(as.matrix(training[, names(training) != "CompressiveStrength"]), training$CompressiveStrength, lambda = 0)
-plot(modelLASSO, xvar = "penalty")
+set.seed(233)
+modelLASSO <- train(CompressiveStrength ~ ., training, method = "lasso")
+plot(modelLASSO$finalModel, xvar = "penalty")
 
 # Q4
 library(lubridate)  # For year() function below
