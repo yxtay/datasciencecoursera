@@ -1,3 +1,5 @@
+setwd("~/GitHub/datasciencecoursera/3-getting-and-cleaning-data/assessment/")
+
 # loading required package
 library(plyr)
 
@@ -52,3 +54,22 @@ df_mean <- ddply(df, .(Activity, Subject), colwise(mean))
 
 # outputing the data frame into a text file
 write.table(df_mean, "tidy_data.txt", row.names=F)
+
+# producing codebook.txt
+coldescript <- gsub("([A-Z])", " \\1", colnames)
+coldescript <- gsub("^ ", "", coldescript)
+coldescript <- gsub("(Time|Frequency) (.*) (Mean|Standard Deviation)", "\\3 \\2 \\1 Domain Signal", coldescript)
+coldescript <- gsub("(^Mean|^Standard)", "Mean of \\1", coldescript)
+coldescript <- gsub("(Deviation)", "\\1 of", coldescript)
+coldescript <- gsub("([X-Z])", "in the \\1", coldescript)
+coldescript <- gsub("(Time.*$)", "\\1 in seconds", coldescript)
+coldescript <- gsub("(Frequency.*$)", "\\1 in hertz", coldescript)
+
+colnames <- paste0("**", colnames, "**")
+coldescript <- paste("-", coldescript)
+codebook <- c(rbind(colnames, "", coldescript, ""))
+write(codebook, "codebook.txt")
+
+library(knitr)
+knit2html("gcd-report.Rmd")
+knit2html("codebook.Rmd")

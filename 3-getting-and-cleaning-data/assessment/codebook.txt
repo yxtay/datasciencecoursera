@@ -1,18 +1,10 @@
-Codebook for tidy_data.txt
-==========================
-
-Variables
----------
-
-There were a total of 68 variables.
-
 **Subject**
 
-- labels for 6 different activities: walking, walking upstairs, walking downstairs, sitting, standing and laying
+- Subject
 
 **Activity**
 
-- unique integer identifier for each of the 30 volunteers
+- Activity
 
 **TimeBodyAccelerometerMeanXDirection**
 
@@ -277,3 +269,4 @@ There were a total of 68 variables.
 **FrequencyBodyGyroscopeJerkMagnitudeStandardDeviation**
 
 - Mean of Standard Deviation of Body Gyroscope Jerk Magnitude Frequency Domain Signal in hertz
+

@@ -24,7 +24,7 @@ Next, the datasets were read in one go with the `lapply()` function.
 The datasets were then combined using `rbind()` to create 2 data frames for test and train respectively.
 These 2 resulting data frames were then combined using `cbind()` to create 1 data frame of all the data.
 
-```{r}
+```{r read, cache=TRUE}
 df_list <- lapply(files, read.table)
 df_test <- cbind(df_list[[1]], df_list[[2]], df_list[[3]])
 df_train <- cbind(df_list[[4]], df_list[[5]], df_list[[6]])
@@ -68,17 +68,15 @@ They were then asssigned to the data frame.
 colnames <- names(df)
 colnames <- gsub("\\(\\)", "", colnames)
 colnames <- gsub("-", "", colnames)
-colnames <- gsub("^t", "TimeDomain", colnames)
-colnames <- gsub("^f", "FrequencyDomain", colnames)
+colnames <- gsub("^t", "Time", colnames)
+colnames <- gsub("^f", "Frequency", colnames)
 colnames <- gsub("Acc", "Accelerometer", colnames)
 colnames <- gsub("Gyro", "Gyroscope", colnames)
 colnames <- gsub("Mag", "Magnitude", colnames)
 colnames <- gsub("mean", "Mean", colnames)
 colnames <- gsub("std", "StandardDeviation", colnames)
-colnames <- gsub("X$", "XDirection", colnames)
-colnames <- gsub("Y$", "YDirection", colnames)
-colnames <- gsub("Z$", "ZDirection", colnames)
-colnames <- gsub("BodyBody", "Body", colnames)
+colnames <- gsub("([X-Z]$)", "\\1Direction", colnames)
+colnames <- gsub("(Body)\\1", "\\1", colnames)
 names(df) <- colnames
 head(names(df))
 ```
