@@ -82,3 +82,6 @@ par(op)
 library(knitr)
 rm(list = ls())
 knit2html("rr-report2.Rmd")
+
+options(rpubs.upload.method = "internal")
+write("options(rpubs.upload.method = \"internal\")", ".Rprofile")
