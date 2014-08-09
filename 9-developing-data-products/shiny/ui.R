@@ -7,16 +7,27 @@ shinyUI(pageWithSidebar(
     sidebarPanel(
         sliderInput("bw1", "Bandwidth of Smoother 1:",
                     min = 2, max = 10, value = 2, step = 0.5,
-                    animate = animationOptions(interval = 1000, loop = T)),
+                    animate = animationOptions(interval = 1500, loop = T)),
         selectInput('kern1', 'Kernel of Smoother 1:', choices = c("normal", "box")),
         
         sliderInput("bw2", "Bandwidth of Smoother 2",
                     min = 2, max = 10, value = 8, step = 0.5,
-                    animate = animationOptions(interval = 1000, loop = T)),
+                    animate = animationOptions(interval = 1500, loop = T)),
         selectInput('kern2', 'Kernel of Smoother 2:', choices = c("normal", "box")),
         
         numericInput("speed", "Speed of car", value = 18, min = 4, max = 25),
         
+        h4("For input speed:"),
+        verbatimTextOutput("speed"),
+        
+        h4("Stopping distance from Smoother 1:"),
+        verbatimTextOutput("dist1"),
+        
+        h4("Stopping distance from Smoother 2:"),
+        verbatimTextOutput("dist2")
+    ),
+    
+    mainPanel(
         h4("Instructions"),
         p("This app serves to demonstrate the Nadaraya-Watson (NW) kernel regression estimator 
           and its tuning parameters using the cars dataset."),
@@ -29,20 +40,9 @@ shinyUI(pageWithSidebar(
           the estimators with different tuning parameters set."),
         p("The final input is used to predict the stopping distance of the car
           with the given speed. The predictions for both estimators are printed
-          in the main panel.")
-    ),
-    
-    mainPanel(
-        plotOutput("plot"),
+          on the side panel."),
         
-        h4("For input speed:"),
-        verbatimTextOutput("speed"),
-        
-        h4("Stopping distance from Smoother 1:"),
-        verbatimTextOutput("dist1"),
-        
-        h4("Stopping distance from Smoother 2:"),
-        verbatimTextOutput("dist2")
+        plotOutput("plot")
     )
     
 ))

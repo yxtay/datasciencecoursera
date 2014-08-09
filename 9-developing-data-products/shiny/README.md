@@ -1,4 +1,4 @@
-DataProd_Shiny
+[[My Shiny App]](https://yxtay.shinyapps.io/ddp-shiny/)
 ===================
 
 This app serves to demonstrate the Nadaraya-Watson (NW) kernel regression estimator 
@@ -14,4 +14,4 @@ the estimators with different tuning parameters set.
 
 The final input is used to predict the stopping distance of the car
 with the given speed. The predictions for both estimators are printed
-in the main panel.
+on the side panel.

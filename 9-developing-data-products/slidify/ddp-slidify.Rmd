@@ -29,7 +29,7 @@ tweaking those parameters and observe how they affect the estimator in a plot?
 
 ---
 
-## Presenting my [Shiny app](https://yxtay.shinyapps.io/DataProd_Shiny/)
+## Presenting my [Shiny app](https://yxtay.shinyapps.io/ddp-shiny/)
 
 ```{r plot, echo=FALSE, fig.align='center', fig.width=10}
 with(cars, {

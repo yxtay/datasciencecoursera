@@ -29,7 +29,7 @@ tweaking those parameters and observe how they affect the estimator in a plot?
 
 ---
 
-## Presenting my [Shiny app](https://yxtay.shinyapps.io/DataProd_Shiny/)
+## Presenting my [Shiny app](https://yxtay.shinyapps.io/ddp-shiny/)
 
 <img src="assets/fig/plot.png" title="plot of chunk plot" alt="plot of chunk plot" style="display: block; margin: auto;" />
 
