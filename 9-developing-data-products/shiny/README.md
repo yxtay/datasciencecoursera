@@ -1,4 +1,4 @@
-[[My Shiny App]](https://yxtay.shinyapps.io/ddp-shiny/)
+[My Shiny App](https://yxtay.shinyapps.io/ddp-shiny/)
 ===================
 
 This app serves to demonstrate the Nadaraya-Watson (NW) kernel regression estimator 
