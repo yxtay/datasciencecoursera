@@ -23,12 +23,12 @@ if(file.exists("household_power_consumption_sub.csv")) {
 # plot time series of energy sub metering with legend
 png("plot3.png", type = "cairo")
 with(data, {
-    plot(datetime, Sub_metering_1, type = "l", 
-         xlab = "", ylab = "Energy sub metering")
-    lines(datetime, Sub_metering_2, col = "red")
-    lines(datetime, Sub_metering_3, col = "blue")
-    legend("topright", 
-           legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-           col = c("black", "red", "blue"), lty = 1)
+    metering <- paste0("Sub_metering_", 1:3)
+    colors <- c("black", "red", "blue")
+    matplot(as.POSIXct(datetime), data[, metering],
+            type = "l", lty = "solid", col = colors,
+            xlab = "" , xaxt = "n", ylab = "Energy sub metering")
+    axis.POSIXct(1, datetime)
+    legend("topright", legend = metering, col = colors, lty = "solid")
 })
 dev.off()
