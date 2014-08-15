@@ -1,0 +1,73 @@
+---
+title: "Analysis of ToothGrowth Dataset"
+output: pdf_document
+---
+
+The `ToothGrowth` dataset was an experiment of the effect of vitamin C on tooth growth in guinea pigs.
+
+Exploratoy Data Analysis
+------------------------
+
+```{r, fig.show='hold', fig.width=10}
+data(ToothGrowth)
+boxplot(len ~ dose + supp, data = ToothGrowth, main = "Boxplot of Tooth Length against Supplement and Dosage")
+```
+
+The boxplot showed the lenght against both supplement type and dosage. Except for the largest dosage,
+it seemed to suggest that supplement OJ was associated with larger tooth growth.
+For the largest dosage, the wide spread for supplement VC made the comparison inconclusive.
+
+Data Summary
+------------
+
+Since tooth length was the only numeric variable, we could use the `summary()` function on it to 
+obtain the five-number summary and mean.
+
+```{r}
+summary(ToothGrowth$len)
+```
+
+Next we could look at the number of subjects for the different supplement and dosage using the `table()` function.
+The investigators set the same number of subject for each group.
+
+```{r}
+with(ToothGrowth, table(supp, dose))
+```
+
+Hypothesis Test
+---------------
+
+The hypothesis tests were done comparing the mean length of tooth growth 
+between the supplements at each dosage levels.
+The alternative hypothesis was that the mean length was no equal.
+It was not assumed that the length for the groups had equal variance.
+The confidence interval were shown as followed.
+
+```{r}
+d0.5 <- t.test(len ~ supp, data = subset(ToothGrowth, dose == 0.5))
+d1.0 <- t.test(len ~ supp, data = subset(ToothGrowth, dose == 1))
+d2.0 <- t.test(len ~ supp, data = subset(ToothGrowth, dose == 2))
+rbind(d0.5 = d0.5$conf.int, d1.0 = d1.0$conf.int, d2.0 = d2.0$conf.int)
+```
+
+It could be observed that zero was not included in the confidence interval for the first 2 dosages: 0.5 and 1.0 mg.
+Hence, it could be concluded that the mean lengths were significantly different from zero with 95% confidence.
+The p-values were **`r d0.5$p.value`** and **`r d1.0$p.value`** respectively.
+In both instance, the confidence interval were positive, showing that supplement OJ was associated with larger
+tooth growth than supplement VC. 
+
+However, the confidence interval for the largest dosage of 2.0 mg contained zero, so the difference in mean lengths
+were not significantly different from zero. The p-value of `r d2.0$p.value` was very large. 
+This could mean that at larger dosage, both supplements had very similar effects on tooth growth.
+
+Conclusion
+----------
+
+For smaller dosages of 0.5 and 1.0 mg, supplement OJ showed greater effect on tooth growth than supplement VC.
+However, at a large dosage of 2.0 mg, the appeared to be as effective.
+Therefore, it could not be concluded that supplement OJ was better than supplement VC for all dosage levels.
+Perhaps an experiment with a larger sample size could be conducted to clear that doubt.
+
+The assumptions made for the analysis was that tooth growth was normally distributed for each group,
+not necessarily with the same mean or variance. 
+In addition, the samples were assumed to be independent and not paired.

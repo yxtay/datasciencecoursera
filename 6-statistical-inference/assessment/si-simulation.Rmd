@@ -1,0 +1,97 @@
+---
+title: "Simulation Report"
+output: pdf_document
+---
+
+In this exercise, the distribution of the mean of exponential random variables
+with rate of 0.2 and sample size of 40 was analysed.
+The random variables were first simulated with the following codes and the means computed.
+1000 simulation of sample size 40 was generated.
+
+```{r}
+set.seed(1)
+n <- 40; lambda <- 0.2
+samples <- replicate(1000, rexp(n, lambda))
+sample.means <- apply(samples, 2, mean)
+```
+
+Mean
+----
+
+The mean of sample means, mean of all the samples and the theoretical mean were then computed. 
+The theoretical mean of the sample mean is also $1/\lambda$.
+It can also be estimated by the sample mean of all the samples.
+
+```{r}
+mean.sample.mean <- mean(sample.means)
+mean.sample <- mean(samples)
+mu <- 1 / lambda
+```
+
+Sample mean of sample means: `r mean.sample.mean`
+
+Sample mean of all samples: `r mean.sample`
+
+Theoretical mean: `r mu`
+
+Unsurprisingly, the sample means of the sample means and of all samples were identical.
+They were also very close to the theoretical mean.
+
+Standard Deviation
+------------------
+
+The respective standard deviation were computed as followed.
+The theoretical standard deviation of the sample mean is $\sigma/\sqrt{n} = \frac{1/\lambda}{\sqrt{n}}$.
+It can also be estimated by $S/\sqrt(n)$, where $S$ is the sample standard deviation of all samples.
+
+```{r}
+sd.sample.mean <- sd(sample.means)
+sd.sample <- sd(samples) / sqrt(n)
+sigma <- 1 / lambda / sqrt(n)
+```
+
+Sample standard deviation of sample means: `r sd.sample.mean`
+
+Sample standard deviation of all samples: `r sd.sample`
+
+Theoretical standard deviation: `r sigma`
+
+Compared to the theoretical standard deviation, the sample means showed less variation.
+However, the estimate from the standard deviation of all was very close to the theoretical value.
+
+Normality
+---------
+
+```{r}
+plot(density(sample.means),
+     main = "Density Plot of Mean of exp(40, 0.2)",
+     xlab = "Value")
+curve(dnorm(x, mu, sigma), add = T, lty = 2)
+legend("topright", legend = c("Sample Density", "Normal Density"), lty = 1:2)
+```
+
+The plot above was the density plot of the sample means with the normal density of the
+same mean and standard deviation superimposed. The distribution of the sample means appeared
+to follow the normal distribution closely. This was due to the Central Limit Theorem,
+since a sample size of 40 was larger than the rule-of-thumb of 30.
+We could check how close the distribution was to normal with the QQ plot.
+
+```{r}
+qqnorm(sample.means)
+qqline(sample.means, col = 2)
+```
+
+The center of the distribution followed the theoretical quantiles pretty closely,
+although the tails displayed some deviation. 
+
+Confidence Interval
+-------------------
+
+The confidence interval of the mean was computed as followed. 
+The coverage was close to the 95% expected from the normal distribution since
+the sample means was approximately normal.
+
+```{r}
+CI <- mean.sample + c(-1,1) * sd.sample.mean * 1.96
+mean(sample.means > CI[1] & sample.means < CI[2])
+```
