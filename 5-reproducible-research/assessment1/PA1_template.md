@@ -37,7 +37,7 @@ This can be achieved by using the `ddply()` function in the `plyr` pacakge.
 
 ```r
 df_days <- ddply(df, .(date), summarise, steps = sum(steps, na.rm = T))
-qplot(steps, data = df_days, geom = "histogram",
+qplot(steps, data = df_days, geom = "histogram", binwidth = 2500,
       main = "Histogram of Number of Steps",
       xlab = "Number of steps", ylab = "Count")
 ```
@@ -102,9 +102,9 @@ The histogram was then plotted and the mean and median computed.
 
 ```r
 df_daily2 <- ddply(df2, .(date), summarise, steps = sum(steps, na.rm = T))
-qplot(steps, data = df_daily2, geom = "histogram",
+qplot(steps, data = df_daily2, geom = "histogram", binwidth = 2500,
       main = "Histogram of Total Step Count",
-      xlab = "Total step count")
+      xlab = "Total step count", ylab = "Count")
 ```
 
 <img src="figure/unnamed-chunk-9.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
@@ -118,7 +118,7 @@ The mean and median number of steps per day are **10766** and **10766** respecti
 
 These values differ from the estimatess from earlier.
 From the histogram, there was an increase in the number of days where
-the total number of steps fall within 10500 and 11000.
+the total number of steps fall within 1000 and 12500.
 The mean and median had also increased.
 On closer inspection of the original data frame, when missing values happened,
 they happened throughout the whole day.

@@ -21,7 +21,7 @@ df_days <- ddply(df, .(date), summarise, steps = sum(steps, na.rm = T))
 hist(df_days$steps,
      main = "Histogram of Number of Steps",
      xlab = "Number of steps")
-qplot(steps, data = df_days, geom = "histogram",
+qplot(steps, data = df_days, geom = "histogram", binwidth = 2500,
       main = "Histogram of Number of Steps",
       xlab = "Number of steps", ylab = "Count")
 steps_mean <- mean(df_days$steps)
@@ -53,9 +53,9 @@ df_daily2 <- ddply(df2, .(date), summarise, steps = sum(steps, na.rm = T))
 hist(df_daily2$steps,
      main = "Histogram of Total Step Count",
      xlab = "Total step count")
-qplot(steps, data = df_daily2, geom = "histogram",
+qplot(steps, data = df_daily2, geom = "histogram", binwidth = 2500,
       main = "Histogram of Total Step Count",
-      xlab = "Total step count")
+      xlab = "Total step count", ylab = "Count")
 steps_mean2 <- mean(df_daily2$steps)
 steps_median2 <- median(df_daily2$steps)
 
