@@ -2,6 +2,13 @@
 
 
 
+
+```r
+# loading packages
+library(plyr)
+library(ggplot2); library(scales)
+```
+
 ## Loading and preprocessing the data
 
 
@@ -14,31 +21,32 @@ It would also be appropriate to preprocess the date and time variables.
 
 
 ```r
-df <- within(df, {date <-  as.Date(date)
-                  interval <- sprintf("%04d", interval)
-                  datetime <- strptime(paste(date, interval), "%F %H%M")})
+df <- mutate(df,
+             date = as.Date(date),
+             interval = sprintf("%04d", interval),
+             time = strptime(interval, "%H%M"),
+             datetime = strptime(paste(date, interval), "%F %H%M"))
 ```
 
 
 ## What is mean total number of steps taken per day?
 
 It would first be necessary to sum the number of steps by day. 
-This can be achieved by using the `tapply()` function.
+This can be achieved by using the `ddply()` function in the `plyr` pacakge.
 
 
 ```r
-day_steps <- with(df, tapply(steps, date, sum, na.rm=T))
-
-with(df, hist(day_steps,
-              main = "Histogram of Total Step Count",
-              xlab = "Total step count"))
+df_days <- ddply(df, .(date), summarise, steps = sum(steps, na.rm = T))
+qplot(steps, data = df_days, geom = "histogram",
+      main = "Histogram of Number of Steps",
+      xlab = "Number of steps", ylab = "Count")
 ```
 
-<img src="figure/unnamed-chunk-4.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
+<img src="figure/unnamed-chunk-5.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
 
 ```r
-steps_mean <- mean(day_steps)
-steps_median <- median(day_steps)
+steps_mean <- mean(df_days$steps)
+steps_median <- median(df_days$steps)
 ```
 
 The mean number of steps per day is **9354**.
@@ -47,23 +55,23 @@ The median number of steps per day is **10395**.
 
 ## What is the average daily activity pattern?
 
-The average number of steps at each time period can be computed with the use of the `tapply()` function.
+The average number of steps at each time period can be computed with the use of the `ddply()` function.
 
 
 ```r
-time <- strptime(unique(df$interval), "%H%M")
-avg_steps <- with(df, tapply(steps, interval, mean, na.rm = T))
+df_daily <- ddply(df, .(time), summarise, steps = mean(steps, na.rm = T))
 
-plot(time, avg_steps, type = "l",
-     main = "Average Daily Activity Pattern",
-     xlab = "Time", ylab = "Average step count")
+qplot(time, steps, data = df_daily, geom = "line",
+      main = "Average Daily Activity Pattern",
+      xlab = "Time", ylab = "Number of steps") +
+    scale_x_datetime(labels = date_format("%H:%M"))
 ```
 
-<img src="figure/unnamed-chunk-5.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+<img src="figure/unnamed-chunk-6.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
 
 ```r
-steps_max <- max(avg_steps)
-max_time <- format(time[which.max(avg_steps) + 0:1], "%H:%M")
+steps_max <- max(df_daily$steps)
+max_interval <- with(df_daily, format(time[which.max(steps) + 0:1], "%H:%M"))
 ```
 
 The maximum average number of steps of **206.17** happened between **08:35** and **08:40**.
@@ -85,33 +93,32 @@ which is achieved by the following codes:
 
 
 ```r
-time_chr <- format(time, "%H%M")
-idx <- with(df, match(interval[id_na], time_chr))
-df2 <- within(df, {steps[id_na] <- avg_steps[idx]})
+idx <- match(df$time[id_na], df_daily$time)
+df2 <- within(df, {steps[id_na] <- df_daily$steps[idx]})
 ```
 
-The histogram is then plotted and the mean and median computed.
+The histogram was then plotted and the mean and median computed.
 
 
 ```r
-day_steps2 <- with(df2, tapply(steps, date, sum, na.rm = T))
-with(df, hist(day_steps2,
-              main = "Histogram of Total Step Count",
-              xlab = "Total step count"))
+df_daily2 <- ddply(df2, .(date), summarise, steps = sum(steps, na.rm = T))
+qplot(steps, data = df_daily2, geom = "histogram",
+      main = "Histogram of Total Step Count",
+      xlab = "Total step count")
 ```
 
-<img src="figure/unnamed-chunk-8.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" />
+<img src="figure/unnamed-chunk-9.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
 
 ```r
-steps_mean2 <- mean(day_steps2)
-steps_median2 <- median(day_steps2)
+steps_mean2 <- mean(df_daily2$steps)
+steps_median2 <- median(df_daily2$steps)
 ```
 
 The mean and median number of steps per day are **10766** and **10766** respectively.
 
 These values differ from the estimatess from earlier.
 From the histogram, there was an increase in the number of days where
-the total number of steps fall within 10000 and 15000.
+the total number of steps fall within 10500 and 11000.
 The mean and median had also increased.
 On closer inspection of the original data frame, when missing values happened,
 they happened throughout the whole day.
@@ -127,26 +134,18 @@ in each data frame before a time series plot was plotted.
 
 
 ```r
-df2 <- within(df2, {day <- weekdays(date)
-                    weekend <- ifelse(is.element(day, c("Saturday", "Sunday")), "weekend", "weekday")})
+df2 <- mutate(df2,
+              day = weekdays(date),
+              weekend = ifelse(is.element(day, c("Saturday", "Sunday")), "Weekend", "Weekday"))
 
-steps <- with(df2, tapply(steps, list(interval, weekend), mean))
-df3 <- cbind(time, as.data.frame(steps))
-yrange <- with(df3, range(weekday, weekend))
-
-op <- par(mfrow = c(2,1), mar = c(4,4,2,1))
-plot(weekday ~ time, data = df3, type = "l",
-     main = "Weekday",
-     xlab = "Time", ylab = "Average step count",
-     ylim = yrange)
-plot(weekend ~ time, data = df3, type = "l",
-     main = "Weekend",
-     xlab = "Time", ylab = "Average step count",
-     ylim = yrange)
-par(op)
+df_weekend <- ddply(df2, .(time, weekend), summarise,
+                    steps = mean(steps))
+qplot(time, steps, data = df_weekend, geom = "line", facets = weekend ~ .,
+      xlab = "Time", ylab = "Number of steps") +
+    scale_x_datetime(labels = date_format("%H:%M"))
 ```
 
-<img src="figure/unnamed-chunk-9.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
+<img src="figure/unnamed-chunk-10.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
 
 From the panel plots, it could be observed that the average step count for weekdays
 was generally higher in the morning before 10:00. 
