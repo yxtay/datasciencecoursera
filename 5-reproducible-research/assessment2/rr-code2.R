@@ -1,7 +1,7 @@
 setwd("~/Github/datasciencecoursera/5-reproducible-research/assessment2/")
 
-library(stringr)
 library(plyr)
+library(ggplot2); library(reshape2)
 
 filename <- "repdata-data-StormData.csv.bz2"
 system.time(storm_df <- read.csv(filename, stringsAsFactors = F))
@@ -31,9 +31,9 @@ storm_df3 <- subset(storm_df2, totaldmg != 0 | casualties != 0,
 
 storm_sum <- ddply(storm_df3, .(evtype), colwise(sum))
 
-print(n <- sapply(storm_sum[, c(4,7)], 
+print(n <- laply(storm_sum[, c(4,7)], 
                   function(x, prop) which((cumsum(sort(x, decreasing = T)) / sum(x)) > prop)[1], 
-                  prop = 0.99)
+                  prop = 0.99))
 id_list <- mapply(function(x, n) head(order(x, decreasing = T), n), storm_sum[, c(4,7)], n)
 id <- sort(unique(do.call(c, id_list)))
 length(id)
@@ -64,6 +64,28 @@ storm_sum$evtype2 <- "others"
 storm_sum$evtype2[id] <- events2
 
 storm_sum2 <- ddply(storm_sum[, -1], .(evtype2), colwise(sum))
+
+storm_human <- mutate(melt(storm_sum2[, c("evtype2", "fatalities", "injuries")], id.vars = "evtype2"),
+                      evtype2 = factor(evtype2, levels = with(storm_sum2, evtype2[order(casualties, decreasing = T)])),
+                      variable = factor(variable, levels = c("injuries", "fatalities")))
+
+qplot(evtype2, data = storm_human, 
+      weight = value / 10^3, fill = variable, 
+      main = "Total Number of Casualties between 1996 and 2011 by Event Type",
+      xlab = "Event Type", ylab = "Casualties ('000)") + 
+    scale_fill_discrete("", breaks = c("fatalities", "injuries"), labels = c("Fatalities", "Injuries")) +
+    theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0))
+
+storm_economic <- mutate(melt(storm_sum2[, c("evtype2", "propdmg", "cropdmg")], id.vars = "evtype2"),
+                         evtype2 = factor(evtype2, levels = with(storm_sum2, evtype2[order(totaldmg, decreasing = T)])),
+                         variable = factor(variable, levels = c("propdmg", "cropdmg")))
+
+qplot(evtype2, data = storm_economic, 
+      weight = value / 10^9, fill = variable, 
+      main = "Total Economic Damage between 1996 and 2011 by Event Type",
+      xlab = "Event Type", ylab = "Economic damage (US$ billions)") + 
+    scale_fill_discrete("", breaks = c("cropdmg", "propdmg"), labels = c("Property", "Crop")) +
+    theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0))
 
 op <- par(mar = c(8,4,2,1))
 with(arrange(storm_sum2, desc(casualties), desc(totaldmg)),

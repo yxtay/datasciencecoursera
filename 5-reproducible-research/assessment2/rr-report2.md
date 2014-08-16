@@ -21,6 +21,12 @@ while the one causing the most economic damage was flood.
 Data
 ----
 
+
+```r
+# loading packages
+library(plyr); library(ggplot2); library(reshape2)
+```
+
 The Storm Event Database was recorded by the U.S National Oceanic and Atmospheric Administration (NOAA).
 It recorded occurrence of storms and other significant weather phenomena between 1950 and 2011.
 There was information available for the date of event, state, coordinates of location, event type, 
@@ -33,8 +39,8 @@ As such data before 1996 were excluded in the analysis. This left the record cou
 
 
 ```r
-storm_df <- read.csv("repdata-data-StormData.csv.bz2", nrow = 1000000, stringsAsFactors = F)
-storm_df <- within(storm_df, {BGN_DATE <- as.Date(BGN_DATE, "%m/%e/%Y 0:00:00")})
+storm_df <- read.csv("repdata-data-StormData.csv.bz2", stringsAsFactors = F)
+storm_df <- mutate(storm_df, BGN_DATE = as.Date(BGN_DATE, "%m/%e/%Y 0:00:00"))
 storm_df2 <- subset(storm_df, BGN_DATE > "1995-12-31")
 names(storm_df2) <- tolower(names(storm_df2))
 ```
@@ -43,8 +49,7 @@ Next, only the columns of interest, as shown below, were kept.
 
 
 ```r
-var_keep <- names(storm_df2)[c(2:4,7:8,23:28)]
-var_keep
+print(var_keep <- names(storm_df2)[c(2:4,7:8,23:28)])
 storm_df2 <- subset(storm_df2, select = var_keep)
 ```
 
@@ -89,7 +94,6 @@ and the property and crop damages to get the summary for economic consequences.
 
 
 ```r
-library(plyr)
 expchr <- c("K", "M", "B"); exp10 <- 10 ^ c(3, 6, 9, 0)
 storm_df2 <- mutate(storm_df2, 
                     propdmgmult = exp10[match(propdmgexp, expchr, nomatch = 4)],
@@ -125,14 +129,13 @@ for 99% of the total costs.
 
 ```r
 storm_sum <- ddply(storm_df3, .(evtype), colwise(sum))
-print(n <- sapply(storm_sum[, c(4,7)], 
+print(n <- laply(storm_sum[, c(4,7)], 
                   function(x, prop) which((cumsum(sort(x, decreasing = T)) / sum(x)) > prop)[1], 
                   prop = 0.99))
 ```
 
 ```
-## casualties   totaldmg 
-##         44         22
+## [1] 44 22
 ```
 
 For human costs, the top 44 raw event types accounted for at least 99% of total,
@@ -235,12 +238,15 @@ To simplify comparison, the event types were ranked by cost of interest and plot
 
 
 ```r
-op <- par(mar = c(8,4,2,1))
-with(arrange(storm_sum2, desc(casualties), desc(totaldmg)),
-     barplot(rbind(injuries, fatalities)[,1:20] / 1000, names.arg = evtype2[1:20], las = 3, col = 3:4,
-             main = "Total Number of Casualties between 1996 and 2011 by Event Type",
-             ylab = "Casualties ('000)"))
-legend("topright", legend = c("Fatalities", "Injuries"), fill = 4:3, bty = "n")
+storm_human <- mutate(melt(storm_sum2[, c("evtype2", "fatalities", "injuries")], id.vars = "evtype2"),
+                      evtype2 = factor(evtype2, levels = with(storm_sum2, evtype2[order(casualties, decreasing = T)])),
+                      variable = factor(variable, levels = c("injuries", "fatalities")))
+qplot(evtype2, data = storm_human, 
+      weight = value / 10^3, fill = variable, 
+      main = "Total Number of Casualties between 1996 and 2011 by Event Type",
+      xlab = "Event Type", ylab = "Casualties ('000)") + 
+    scale_fill_discrete("", breaks = c("fatalities", "injuries"), labels = c("Fatalities", "Injuries")) +
+    theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0))
 ```
 
 <img src="figure/casualties.png" title="plot of chunk casualties" alt="plot of chunk casualties" style="display: block; margin: auto;" />
@@ -251,12 +257,15 @@ The next 4 event types (excessive heat, flood, thunderstorm wind and lightning) 
 
 
 ```r
-op <- par(mar = c(8,4,2,1))
-with(arrange(storm_sum2, desc(totaldmg), desc(casualties)),
-     barplot(rbind(propdmg, cropdmg)[,1:20] / 10^9, names.arg = evtype2[1:20], las = 3, col = 3:4,
-             main = "Total Economic Damage between 1996 and 2011 by Event Type",
-             ylab = "Economic damage (US$ billions)"))
-legend("topright", legend = c("Crop", "Property"), fill = 4:3, bty = "n")
+storm_economic <- mutate(melt(storm_sum2[, c("evtype2", "propdmg", "cropdmg")], id.vars = "evtype2"),
+                         evtype2 = factor(evtype2, levels = with(storm_sum2, evtype2[order(totaldmg, decreasing = T)])),
+                         variable = factor(variable, levels = c("propdmg", "cropdmg")))
+qplot(evtype2, data = storm_economic, 
+      weight = value / 10^9, fill = variable, 
+      main = "Total Economic Damage between 1996 and 2011 by Event Type",
+      xlab = "Event Type", ylab = "Economic damage (US$ billions)") + 
+    scale_fill_discrete("", breaks = c("cropdmg", "propdmg"), labels = c("Crop", "Property")) +
+    theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0))
 ```
 
 <img src="figure/totaldmg.png" title="plot of chunk totaldmg" alt="plot of chunk totaldmg" style="display: block; margin: auto;" />
