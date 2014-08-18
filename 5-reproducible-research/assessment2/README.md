@@ -227,9 +227,30 @@ for the final time.
 
 ```r
 storm_sum2 <- ddply(storm_sum[, -1], .(evtype2), colwise(sum))
+storm_sum3 <- melt(storm_sum2, id.vars = "evtype2")
+unique(storm_sum2$evtype2)
 ```
 
-In the end, only 31 event types remained.
+```
+##  [1] "avalanche"               "blizzard"               
+##  [3] "cold/wind chill"         "dense fog"              
+##  [5] "drought"                 "dust storm"             
+##  [7] "excessive heat"          "extreme cold/wind chill"
+##  [9] "flash flood"             "flood"                  
+## [11] "frost/freeze"            "hail"                   
+## [13] "heat"                    "heavy rain"             
+## [15] "heavy snow"              "high surf"              
+## [17] "high wind"               "hurricane/typhoon"      
+## [19] "ice storm"               "landslide"              
+## [21] "lightning"               "others"                 
+## [23] "rip current"             "storm surge/tide"       
+## [25] "strong wind"             "thunderstorm wind"      
+## [27] "tornado"                 "tropical storm"         
+## [29] "tsunami"                 "wildfire"               
+## [31] "winter storm"            "winter weather"
+```
+
+In the end, excluding those labeled as "others", only 31 event types remained.
 
 Results
 -------
@@ -238,15 +259,13 @@ To simplify comparison, the event types were ranked by cost of interest and plot
 
 
 ```r
-storm_human <- mutate(melt(storm_sum2[, c("evtype2", "fatalities", "injuries")], id.vars = "evtype2"),
-                      evtype2 = factor(evtype2, levels = with(storm_sum2, evtype2[order(casualties, decreasing = T)])),
-                      variable = factor(variable, levels = c("injuries", "fatalities")))
-qplot(evtype2, data = storm_human, 
-      weight = value / 10^3, fill = variable, 
+qplot(reorder(evtype2, desc(value), sum), 
+      data = subset(storm_sum3, variable %in% c("fatalities", "injuries")), 
+      weight = value / 10^3, fill = rev(variable), order = rev(variable),
       main = "Total Number of Casualties between 1996 and 2011 by Event Type",
       xlab = "Event Type", ylab = "Casualties ('000)") + 
-    scale_fill_discrete("", breaks = c("fatalities", "injuries"), labels = c("Fatalities", "Injuries")) +
-    theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0))
+    scale_fill_discrete("", labels = c("Injuries", "Fatalities"), guide = guide_legend(rev = T)) +
+    theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0.5))
 ```
 
 <img src="figure/casualties.png" title="plot of chunk casualties" alt="plot of chunk casualties" style="display: block; margin: auto;" />
@@ -257,14 +276,12 @@ The next 4 event types (excessive heat, flood, thunderstorm wind and lightning) 
 
 
 ```r
-storm_economic <- mutate(melt(storm_sum2[, c("evtype2", "propdmg", "cropdmg")], id.vars = "evtype2"),
-                         evtype2 = factor(evtype2, levels = with(storm_sum2, evtype2[order(totaldmg, decreasing = T)])),
-                         variable = factor(variable, levels = c("propdmg", "cropdmg")))
-qplot(evtype2, data = storm_economic, 
-      weight = value / 10^9, fill = variable, 
+qplot(reorder(evtype2, desc(value), sum), 
+      data = subset(storm_sum3, variable %in% c("propdmg", "cropdmg")), 
+      weight = value / 10^9, fill = variable,
       main = "Total Economic Damage between 1996 and 2011 by Event Type",
       xlab = "Event Type", ylab = "Economic damage (US$ billions)") + 
-    scale_fill_discrete("", breaks = c("cropdmg", "propdmg"), labels = c("Crop", "Property")) +
+    scale_fill_discrete("", labels = c("Property", "Crop"), guide = guide_legend(rev = T)) +
     theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0))
 ```
 

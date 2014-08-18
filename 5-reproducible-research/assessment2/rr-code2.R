@@ -65,41 +65,31 @@ storm_sum$evtype2[id] <- events2
 
 storm_sum2 <- ddply(storm_sum[, -1], .(evtype2), colwise(sum))
 
-storm_human <- mutate(melt(storm_sum2[, c("evtype2", "fatalities", "injuries")], id.vars = "evtype2"),
-                      evtype2 = factor(evtype2, levels = with(storm_sum2, evtype2[order(casualties, decreasing = T)])),
-                      variable = factor(variable, levels = c("injuries", "fatalities")))
+storm_sum3 <- melt(storm_sum2, id.vars = "evtype2")
 
-qplot(evtype2, data = storm_human, 
-      weight = value / 10^3, fill = variable, 
+# storm_human <- mutate(melt(storm_sum2[, c("evtype2", "fatalities", "injuries")], id.vars = "evtype2"),
+#                       evtype2 = factor(evtype2, levels = names(sort(tapply(value, evtype2, sum), decreasing = T))),
+#                       variable = factor(variable, levels = c("injuries", "fatalities")))
+
+qplot(reorder(evtype2, desc(value), sum), 
+      data = subset(storm_sum3, variable %in% c("fatalities", "injuries")), 
+      weight = value / 10^3, fill = rev(variable), order = rev(variable),
       main = "Total Number of Casualties between 1996 and 2011 by Event Type",
       xlab = "Event Type", ylab = "Casualties ('000)") + 
-    scale_fill_discrete("", breaks = c("fatalities", "injuries"), labels = c("Fatalities", "Injuries")) +
-    theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0))
+    scale_fill_discrete("", labels = c("Injuries", "Fatalities"), guide = guide_legend(rev = T)) +
+    theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0.5))
 
-storm_economic <- mutate(melt(storm_sum2[, c("evtype2", "propdmg", "cropdmg")], id.vars = "evtype2"),
-                         evtype2 = factor(evtype2, levels = with(storm_sum2, evtype2[order(totaldmg, decreasing = T)])),
-                         variable = factor(variable, levels = c("propdmg", "cropdmg")))
+# storm_economic <- mutate(melt(storm_sum2[, c("evtype2", "propdmg", "cropdmg")], id.vars = "evtype2"),
+#                          evtype2 = factor(evtype2, levels = names(sort(tapply(value, evtype2, sum), decreasing = T))),
+#                          variable = factor(variable, levels = c("propdmg", "cropdmg")))
 
-qplot(evtype2, data = storm_economic, 
-      weight = value / 10^9, fill = variable, 
+qplot(reorder(evtype2, desc(value), sum), 
+      data = subset(storm_sum3, variable %in% c("propdmg", "cropdmg")), 
+      weight = value / 10^9, fill = variable,
       main = "Total Economic Damage between 1996 and 2011 by Event Type",
       xlab = "Event Type", ylab = "Economic damage (US$ billions)") + 
-    scale_fill_discrete("", breaks = c("cropdmg", "propdmg"), labels = c("Property", "Crop")) +
+    scale_fill_discrete("", labels = c("Property", "Crop"), guide = guide_legend(rev = T)) +
     theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0))
-
-op <- par(mar = c(8,4,2,1))
-with(arrange(storm_sum2, desc(casualties), desc(totaldmg)),
-     barplot(rbind(injuries, fatalities)[,1:20] / 1000, names.arg = evtype2[1:20], las = 3, col = 3:4,
-             main = "Total Number of Casualties between 1996 and 2011 by Event Type",
-             ylab = "Casualties ('000)"))
-legend("topright", legend = c("Fatalities", "Injuries"), fill = 4:3, bty = "n")
-
-with(arrange(storm_sum2, desc(totaldmg), desc(casualties)),
-     barplot(rbind(propdmg, cropdmg)[,1:20] / 10^9, names.arg = evtype2[1:20], las = 3, col = 3:4,
-             main = "Total Economic Damage between 1996 and 2011 by Event Type",
-             ylab = "Economic damage (US$ billions)"))
-legend("topright", legend = c("Crop", "Property"), fill = 4:3, bty = "n")
-par(op)
 
 library(knitr)
 rm(list = ls())

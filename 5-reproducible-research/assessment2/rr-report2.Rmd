@@ -164,9 +164,11 @@ for the final time.
 
 ```{r}
 storm_sum2 <- ddply(storm_sum[, -1], .(evtype2), colwise(sum))
+storm_sum3 <- melt(storm_sum2, id.vars = "evtype2")
+unique(storm_sum2$evtype2)
 ```
 
-In the end, only `r nrow(storm_sum2)-1` event types remained.
+In the end, excluding those labeled as "others", only `r nrow(storm_sum2)-1` event types remained.
 
 Results
 -------
@@ -174,15 +176,13 @@ Results
 To simplify comparison, the event types were ranked by cost of interest and plotted in a barplot.
 
 ```{r casualties, fig.width=10}
-storm_human <- mutate(melt(storm_sum2[, c("evtype2", "fatalities", "injuries")], id.vars = "evtype2"),
-                      evtype2 = factor(evtype2, levels = with(storm_sum2, evtype2[order(casualties, decreasing = T)])),
-                      variable = factor(variable, levels = c("injuries", "fatalities")))
-qplot(evtype2, data = storm_human, 
-      weight = value / 10^3, fill = variable, 
+qplot(reorder(evtype2, desc(value), sum), 
+      data = subset(storm_sum3, variable %in% c("fatalities", "injuries")), 
+      weight = value / 10^3, fill = rev(variable), order = rev(variable),
       main = "Total Number of Casualties between 1996 and 2011 by Event Type",
       xlab = "Event Type", ylab = "Casualties ('000)") + 
-    scale_fill_discrete("", breaks = c("fatalities", "injuries"), labels = c("Fatalities", "Injuries")) +
-    theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0))
+    scale_fill_discrete("", labels = c("Injuries", "Fatalities"), guide = guide_legend(rev = T)) +
+    theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0.5))
 ```
 
 In terms of events most harmful to human health, the most costly was tornado, 
@@ -190,14 +190,12 @@ which resulted in more than 20 thousand injuries and about 1500 deaths in the 15
 The next 4 event types (excessive heat, flood, thunderstorm wind and lightning) were also very harmful.
 
 ```{r totaldmg, fig.width=10}
-storm_economic <- mutate(melt(storm_sum2[, c("evtype2", "propdmg", "cropdmg")], id.vars = "evtype2"),
-                         evtype2 = factor(evtype2, levels = with(storm_sum2, evtype2[order(totaldmg, decreasing = T)])),
-                         variable = factor(variable, levels = c("propdmg", "cropdmg")))
-qplot(evtype2, data = storm_economic, 
-      weight = value / 10^9, fill = variable, 
+qplot(reorder(evtype2, desc(value), sum), 
+      data = subset(storm_sum3, variable %in% c("propdmg", "cropdmg")), 
+      weight = value / 10^9, fill = variable,
       main = "Total Economic Damage between 1996 and 2011 by Event Type",
       xlab = "Event Type", ylab = "Economic damage (US$ billions)") + 
-    scale_fill_discrete("", breaks = c("cropdmg", "propdmg"), labels = c("Crop", "Property")) +
+    scale_fill_discrete("", labels = c("Property", "Crop"), guide = guide_legend(rev = T)) +
     theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0))
 ```
 
