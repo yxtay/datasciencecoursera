@@ -72,8 +72,8 @@ storm_sum3 <- melt(storm_sum2, id.vars = "evtype2")
 #                       variable = factor(variable, levels = c("injuries", "fatalities")))
 
 qplot(reorder(evtype2, desc(value), sum), 
-      data = subset(storm_sum3, variable %in% c("fatalities", "injuries")), 
-      weight = value / 10^3, fill = rev(variable), order = rev(variable),
+      data = droplevels(subset(storm_sum3, variable %in% c("fatalities", "injuries"))), 
+      weight = value / 10^3, fill = reorder(variable, desc(value), sum),
       main = "Total Number of Casualties between 1996 and 2011 by Event Type",
       xlab = "Event Type", ylab = "Casualties ('000)") + 
     scale_fill_discrete("", labels = c("Injuries", "Fatalities"), guide = guide_legend(rev = T)) +
@@ -84,8 +84,8 @@ qplot(reorder(evtype2, desc(value), sum),
 #                          variable = factor(variable, levels = c("propdmg", "cropdmg")))
 
 qplot(reorder(evtype2, desc(value), sum), 
-      data = subset(storm_sum3, variable %in% c("propdmg", "cropdmg")), 
-      weight = value / 10^9, fill = variable,
+      data = droplevels(subset(storm_sum3, variable %in% c("fatalities", "injuries"))),
+      weight = value / 10^9, fill = reorder(variable, desc(value), sum),
       main = "Total Economic Damage between 1996 and 2011 by Event Type",
       xlab = "Event Type", ylab = "Economic damage (US$ billions)") + 
     scale_fill_discrete("", labels = c("Property", "Crop"), guide = guide_legend(rev = T)) +
@@ -95,5 +95,4 @@ library(knitr)
 rm(list = ls())
 knit2html("rr-report2.Rmd")
 
-options(rpubs.upload.method = "internal")
 write("options(rpubs.upload.method = \"internal\")", ".Rprofile")

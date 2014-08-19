@@ -165,7 +165,7 @@ for the final time.
 ```{r}
 storm_sum2 <- ddply(storm_sum[, -1], .(evtype2), colwise(sum))
 storm_sum3 <- melt(storm_sum2, id.vars = "evtype2")
-unique(storm_sum2$evtype2)
+storm_sum2$evtype2
 ```
 
 In the end, excluding those labeled as "others", only `r nrow(storm_sum2)-1` event types remained.
@@ -177,8 +177,8 @@ To simplify comparison, the event types were ranked by cost of interest and plot
 
 ```{r casualties, fig.width=10}
 qplot(reorder(evtype2, desc(value), sum), 
-      data = subset(storm_sum3, variable %in% c("fatalities", "injuries")), 
-      weight = value / 10^3, fill = rev(variable), order = rev(variable),
+      data = droplevels(subset(storm_sum3, variable %in% c("fatalities", "injuries"))), 
+      weight = value / 10^3, fill = reorder(variable, desc(value), sum),
       main = "Total Number of Casualties between 1996 and 2011 by Event Type",
       xlab = "Event Type", ylab = "Casualties ('000)") + 
     scale_fill_discrete("", labels = c("Injuries", "Fatalities"), guide = guide_legend(rev = T)) +
@@ -191,8 +191,8 @@ The next 4 event types (excessive heat, flood, thunderstorm wind and lightning) 
 
 ```{r totaldmg, fig.width=10}
 qplot(reorder(evtype2, desc(value), sum), 
-      data = subset(storm_sum3, variable %in% c("propdmg", "cropdmg")), 
-      weight = value / 10^9, fill = variable,
+      data = droplevels(subset(storm_sum3, variable %in% c("fatalities", "injuries"))),
+      weight = value / 10^9, fill = reorder(variable, desc(value), sum),
       main = "Total Economic Damage between 1996 and 2011 by Event Type",
       xlab = "Event Type", ylab = "Economic damage (US$ billions)") + 
     scale_fill_discrete("", labels = c("Property", "Crop"), guide = guide_legend(rev = T)) +
