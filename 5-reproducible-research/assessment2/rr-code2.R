@@ -84,7 +84,7 @@ qplot(reorder(evtype2, desc(value), sum),
 #                          variable = factor(variable, levels = c("propdmg", "cropdmg")))
 
 qplot(reorder(evtype2, desc(value), sum), 
-      data = droplevels(subset(storm_sum3, variable %in% c("fatalities", "injuries"))),
+      data = droplevels(subset(storm_sum3, variable %in% c("propdmg", "cropdmg"))),
       weight = value / 10^9, fill = reorder(variable, desc(value), sum),
       main = "Total Economic Damage between 1996 and 2011 by Event Type",
       xlab = "Event Type", ylab = "Economic damage (US$ billions)") + 
