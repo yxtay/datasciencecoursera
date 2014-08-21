@@ -7,7 +7,7 @@ SCC <- readRDS("Source_Classification_Code.rds")
 em <- with(NEI, tapply(Emissions, year, sum))
 
 # process year as Data variable
-year <- as.Date(paste(names(em), "-01-01", sep = ""))
+year <- as.Date(paste0(names(em), "-01-01"))
 
 # plot emissions against year
 png("plot1.png")

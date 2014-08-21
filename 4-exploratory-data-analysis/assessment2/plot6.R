@@ -7,27 +7,22 @@ SCC <- readRDS("Source_Classification_Code.rds")
 # assuming that type == "ON-ROAD" gives all motor vehicle sources
 NEI_sub <- subset(NEI, (fips == "24510" | fips == "06037") & type == "ON-ROAD")
 
-# sum emissions by year
-em <- with(NEI_sub, tapply(Emissions, list(year, fips), sum))
+# sum emissions by year and location
+# requires plyr package
+library(plyr)
+em_df <- ddply(NEI_sub, .(year, fips), summarise, em = sum(Emissions))
 
-# convert output to data frame and name variables appropriately
-em <- as.data.frame(em)
-names(em) <- c("Los Angeles County", "Baltimore City")
-
-# process year as Data variable and bind to data frame
-year <- as.Date(paste(rownames(em), "-01-01", sep = ""))
-em <- cbind(year, em)
-
-# convert data frame to long format for us by ggplot
-# requires reshape2 package for melt() function
-library(reshape2)
-em_melt <- melt(em, measure.vars = c("Los Angeles County", "Baltimore City"))
-names(em_melt) <- c("Year", "Location", "Emissions")
+# process year as Date variable and label location appropriately
+em_df <- mutate(em_df,
+                year = as.Date(paste0(year, "-01-01")),
+                Location = factor(fips, levels = c("24510", "06037"), 
+                                  labels = c("Baltimore City", "Los Angeles County")))
 
 # plot emissions against year by Location
+# requires ggplot2 package
 library(ggplot2)
 png("plot6.png")
-q <- qplot(Year, Emissions, data = em_melt, col = Location, geom = "line",
+q <- qplot(year, em, data = em_df, col = Location, geom = "line",
            main = "PM2.5 Emissions from Motor Vehicles",
            xlab = "Year", ylab = "Emissions (tons)")
 print(q)

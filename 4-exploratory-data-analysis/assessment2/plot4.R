@@ -13,7 +13,7 @@ NEI_sub <- subset(NEI, SCC %in% reqSCC)
 em <- with(NEI_sub, tapply(Emissions, year, sum))
 
 # process year as Data varialbe
-year <- as.Date(paste(names(em), "-01-01", sep = ""))
+year <- as.Date(paste0(names(em), "-01-01"))
 
 # plot emssions against year
 png("plot4.png")
