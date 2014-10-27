@@ -9,7 +9,7 @@ NEI_sub <- subset(NEI, fips == "24510")
 # sum emissions from all sources by year
 em_Bt <- with(NEI_sub, tapply(Emissions, year, sum))
 
-# process year as Data variable
+# process year as Date variable
 year <- as.Date(paste0(names(em_Bt), "-01-01"))
 
 # plot emissions against year

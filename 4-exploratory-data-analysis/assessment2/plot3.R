@@ -11,7 +11,7 @@ NEI_sub <- subset(NEI, fips == "24510")
 library(plyr)
 em_df <- ddply(NEI_sub, .(year, type), summarise, em = sum(Emissions))
 
-# process year as Date variable and bind to data frame
+# process year as Date variable
 em_df <- mutate(em_df,
                 year = as.Date(paste0(year, "-01-01")),
                 type = gsub("-", "", tolower(type)))
