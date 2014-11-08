@@ -1,10 +1,11 @@
-```{r, echo=FALSE}
-knitr::opts_chunk$set(results = "hold", fig.show = "hold", fig.align = "center", message = F, warning = F, echo = F)
-```
 ---
 title: "Capstone Milestone Report"
 output: html_document
 ---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(results = "hold", fig.show = "hold", fig.align = "center", message = F, warning = F, echo = F)
+```
 
 ```{r}
 library(plyr); library(ggplot2); library(reshape2); library(beepr)
