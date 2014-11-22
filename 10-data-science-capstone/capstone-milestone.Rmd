@@ -1,14 +1,15 @@
 ---
-title: "Capstone Milestone Report"
 output: html_document
 ---
 
-```{r, echo=FALSE}
-knitr::opts_chunk$set(results = "hold", fig.show = "hold", fig.align = "center", message = F, warning = F, echo = F)
+# Capstone Milestone Report
+
+```{r options, echo=FALSE}
+knitr::opts_chunk$set(results = "hold", fig.show = "hold", fig.align = "center", message = F, warning = F, cache = T)
 ```
 
-```{r}
-library(plyr); library(ggplot2); library(reshape2); library(beepr)
+```{r packages}
+library(plyr); library(ggplot2); library(reshape2); library(gridExtra)
 library(tm); library(SnowballC); library(qdap); library(RWeka)
 library(wordcloud); library(RColorBrewer)
 ```
@@ -23,14 +24,25 @@ to gain an understanding of the data given and outline the steps explored to ach
 
 ## Data
 
+```{r read}
+name <- c("blogs", "news", "twitter")
+files <- paste0("./final/en_US/en_US.", name, ".txt")
+texts <- llply(files, readLines)
+names(texts) <- name
+```
+
 The data consisted of text documents in 4 different languages: English, Finnish, German and Russian. 
 In each language, text documents were obtain from 3 sources: blogs, news and Twitter. 
 For the purpose of this project, only the English documents were analysed 
 and of which the predictive text model would be built on. 
 Brief information of the documents was provided in the table below.
 
-```{r}
-df.exp
+```{r explore}
+docSize <- sapply(texts, object.size)
+lineCount <- sapply(texts, length)
+charCount <- llply(texts, nchar)
+meanChar <- sapply(charCount, mean)
+(df.exp <- data.frame(lineCount, docSize, meanChar))
 ```
 
 Evidently, the documents contained varying amount of text data, with the Twitter document the largest 
@@ -50,6 +62,11 @@ The `strsplit()` function with argument `split = " "` was used directly to break
 The histogram of the word count per document by source type were shown below.
 
 ```{r wordCount, fig.width = 10, fig.height = 8}
+words <- llply(texts, strsplit, split = " ")
+wordCount <- llply(words, laply, length)
+df.wc <- melt(wordCount)
+names(df.wc) <- c("count", "source")
+
 p1 <- qplot(count, data = df.wc, geom = "histogram", fill = source,
             xlim = c(0, 150),
             xlab = "Word Count", ylab = "Frequency")
@@ -89,6 +106,18 @@ The frequency counts would then be normalised by the first (n-1) words ahead to 
 The probabilities would then be sorted in decreasing order, 
 with the last words of the top 3 ngrams forming the suggestions for the app. 
 
+```{r preprocess}
+set.seed(0)
+lineCount <- llply(texts, length)
+textsS <- llply(seq_along(texts), function(i) sample(texts[[i]], ceiling(0.01 * lineCount[[i]])))
+textsS <- do.call(c, textsS)
+
+textsS <- sent_detect(paste0(textsS, "|"))
+textsS <- removePunctuation(textsS, preserve_intra_word_dashes = T)
+textsS <- stripWhitespace(textsS)
+textsS <- tolower(textsS)
+```
+
 To employ all the information of the unigram, bigram and trigrams available, 
 the trigrams would first be used to create suggestions. 
 If first 2 words could not be matched or the suggested word had a low probability, 
@@ -98,21 +127,27 @@ The unigram would basically be individual words sorted by count.
 The word clouds below showed the top couple of hundred ngrams for unigrams, 
 bigrams and trigrams respectively for a 1% random sample of documents provided.
 
+**Unigram word cloud**
 ```{r unigram}
-set.seed(0)
+wordCount <- sort(termFreq(PlainTextDocument(textsS)), decreasing = T)
 wordcloud(names(wordCount), wordCount, scale = c(5,1), max.words = 200, 
           colors = brewer.pal(9, "Set1"))
 ```
-**Unigram word cloud**
 
+**Bigram word cloud**
 ```{r bigram}
+BigramTokenizer <- function(x) NGramTokenizer(x, Weka_control(min = 2, max = 2))
+bigramCount <- sort(termFreq(PlainTextDocument(textsS), control = list(tokenize = BigramTokenizer)),
+                    decreasing = T)
 wordcloud(names(bigramCount), bigramCount, max.words = 200, 
           colors = brewer.pal(9, "Set1"))
 ```
-**Bigram word cloud**
 
+**Trigram word cloud**
 ```{r trigram}
+TrigramTokenizer <- function(x) NGramTokenizer(x, Weka_control(min = 3, max = 3))
+trigramCount <- sort(termFreq(PlainTextDocument(textsS), control = list(tokenize = TrigramTokenizer)),
+                     decreasing = T)
 wordcloud(names(trigramCount), trigramCount, scale = c(3, 0.5), max.words = 100, 
           colors = brewer.pal(9, "Set1"))
 ```
-**Trigram word cloud**
