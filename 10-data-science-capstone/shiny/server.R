@@ -4,6 +4,7 @@ library(plyr)
 load("RData/unigramdf.RData")
 load("RData/bigramdf2.RData")
 load("RData/trigramdf2.RData")
+# load("RData/quadgramdf2.RData")
 
 cleanText <- function(textInput) {
     # remove non-printable characters i.e. not [:alnum:], [:punct:] and [:space:]
@@ -16,12 +17,16 @@ cleanText <- function(textInput) {
     textInput <- gsub("&+", " and ", textInput)
     # remove punctuations
     textInput <- gsub("[[:punct:]]+", " ", textInput)
+    # remove non-alphnumeric characters
+    textInput <- gsub("[^[:alnum:]]+", " ", textInput)
     # remove excessive whitespaces
     textInput <- gsub(" +", " ", textInput)
     # strip whitespace at beginning/end of sentences
     textInput <- gsub("^ | $", "", textInput)
     # convert all characters to lower case
     textInput <- tolower(textInput)
+    # convert all numbers to "<NUM>"
+    textInput <- gsub("[[:digit:]]+", "<NUM>", textInput)
     
     wordsOut <- unlist(strsplit(textInput, " "))
     return(wordsOut)
@@ -30,9 +35,8 @@ cleanText <- function(textInput) {
 getNWords <- function(wordsIn, n) paste(tail(wordsIn, n), collapse = " ")
 
 suggestWords <- function(wordsInput, npred, ngramdf) {
-    wordsdf <- subset(ngramdf, words == wordsInput, c(suggestion, count))
-    wordsdf <- mutate(wordsdf, prop = count / sum(count))
-    wordsdf <- arrange(wordsdf, desc(count))
+    wordsdf <- subset(ngramdf, words == wordsInput, c(suggestion, prop))
+    wordsdf <- arrange(wordsdf, desc(prop))
     return(head(wordsdf, npred))
 }
 
@@ -48,10 +52,13 @@ shinyServer(function(input, output) {
     
     output$textIn <- renderText( input$text )
     
+    output$textOut <- renderText( cleanText(input$text) )
+    
     output$value <- renderText({
         textIn <- cleanText(input$text)
         bigramSuggest <- suggestWords(tail(textIn, 1), 3, bigram.df2)
         trigramSuggest <- suggestWords(getNWords(textIn, 2), 3, trigram.df2)
+#         quadgramSuggest <- suggestWords(getNWords(textIn, 2), 3, quadgram.df2)
         suggestion <- chooseSuggestions(rbind(bigramSuggest, trigramSuggest), 1)
         if (length(suggestion) < 1) suggestion <- head(unigram.df$suggestion, 1)
         suggestion

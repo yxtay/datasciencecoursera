@@ -46,12 +46,16 @@ textsS <- gsub("&+", " and ", textsS)
 textsS <- unlist(strsplit(textsS, "[.?!]+"))
 # remove punctuations
 textsS <- gsub("[[:punct:]]+", " ", textsS)
+# remove non-alphnumeric characters
+textsS <- gsub("[^[:alnum:]]+", " ", textsS)
 # remove excessive whitespaces
 textsS <- gsub(" +", " ", textsS)
 # strip whitespace at beginning/end of sentences
 textsS <- gsub("^ | $", "", textsS)
 # convert all characters to lower case
 textsS <- tolower(textsS)
+# convert all numbers to "<NUM>"
+textsS <- gsub("[[:digit:]]+", "<NUM>", textsS)
 
 ###
 # save preprocessed data

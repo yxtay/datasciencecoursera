@@ -12,21 +12,25 @@ load("RData/trigramdf2.RData")
 
 cleanText <- function(textInput) {
     # remove non-printable characters i.e. not [:alnum:], [:punct:] and [:space:]
-    textInput <- gsub("[^[:print:]]+", " ", textInput)
+    textsS <- gsub("[^[:print:]]+", " ", textsS)
     # merge words/characters separated by period, aprostrophe and hyphen
-    textInput <- gsub("([[:alpha:]])[.'-]([[:alpha:]])", "\\1\\2", textInput)
+    textsS <- gsub("([[:alpha:]])[.'-]([[:alpha:]])", "\\1\\2", textsS)
     # merge digits separated by punctuation and space
-    textInput <- gsub("([[:digit:]])[[:punct:] ]([[:digit:]])", "\\1\\2", textInput)
+    textsS <- gsub("([[:digit:]])[[:punct:] ]([[:digit:]])", "\\1\\2", textsS)
     # replace ampersand with "and"
-    textInput <- gsub("&+", " and ", textInput)
+    textsS <- gsub("&+", " and ", textsS)
     # remove punctuations
-    textInput <- gsub("[[:punct:]]+", " ", textInput)
+    textsS <- gsub("[[:punct:]]+", " ", textsS)
+    # remove non-alphnumeric characters
+    textsS <- gsub("[^[:alnum:]]+", " ", textsS)
     # remove excessive whitespaces
-    textInput <- gsub(" +", " ", textInput)
+    textsS <- gsub(" +", " ", textsS)
     # strip whitespace at beginning/end of sentences
-    textInput <- gsub("^ | $", "", textInput)
+    textsS <- gsub("^ | $", "", textsS)
     # convert all characters to lower case
-    textInput <- tolower(textInput)
+    textsS <- tolower(textsS)
+    # convert all numbers to "<NUM>"
+    textsS <- gsub("[[:digit:]]+", "<NUM>", textsS)
     
     wordsOut <- strsplit(textInput, " ")
     return(wordsOut)
@@ -56,4 +60,3 @@ chooseSuggestions <- function(suggestdf) {
     suggestdf <- head(arrange(suggestdf, desc(prop)), 3)
     return(suggestdf$suggestion)
 }
-
