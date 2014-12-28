@@ -108,74 +108,93 @@ source("prediction.R")
 # quiz 2
 ###
 
-rankSuggestions("case of", c("cheese", "soda", "pretzels", "beer"), trigram.df)
-rankSuggestions("of", c("cheese", "soda", "pretzels", "beer"), bigram.df)
+choices <- c("cheese", "soda", "pretzels", "beer")
+rankSuggestions("case of", choices, trigram.df)
+rankSuggestions("of", choices, bigram.df)
 
-rankSuggestions("mean the", c("most", "best", "world", "universe"), trigram.df)
-rankSuggestions("the", c("most", "best", "world", "universe"), bigram.df)
+choices <- c("most", "best", "world", "universe")
+rankSuggestions("mean the", choices, trigram.df)
+rankSuggestions("the", choices, bigram.df)
 
-rankSuggestions("me the", c("happiest", "bluest", "saddest", "smelliest"), trigram.df)
-rankSuggestions("the", c("happiest", "bluest", "saddest", "smelliest"), bigram.df)
+choices <- c("happiest", "bluest", "saddest", "smelliest")
+rankSuggestions("me the", choices, trigram.df)
+rankSuggestions("the", choices, bigram.df)
 
-rankSuggestions("but the", c("defense", "referees", "players", "crowd"), trigram.df)
-rankSuggestions("the", c("defense", "referees", "players", "crowd"), bigram.df)
+choices <- c("defense", "referees", "players", "crowd")
+rankSuggestions("but the", choices, trigram.df)
+rankSuggestions("the", choices, bigram.df)
 
-rankSuggestions("at the", c("groceries", "mall", "movies", "beach"), trigram.df)
-rankSuggestions("the", c("groceries", "mall", "movies", "beach"), bigram.df)
+choices <- c("groceries", "mall", "movies", "beach")
+rankSuggestions("at the", choices, trigram.df)
+rankSuggestions("the", choices, bigram.df)
 
-rankSuggestions("on my", c("way", "motorcycle", "horse", "phone"), trigram.df)
-rankSuggestions("my", c("way", "motorcycle", "horse", "phone"), bigram.df)
+choices <- c("way", "motorcycle", "horse", "phone")
+rankSuggestions("on my", choices, trigram.df)
+rankSuggestions("my", choices, bigram.df)
 
-rankSuggestions("quite some", c("time", "thing", "years", "weeks"), trigram.df)
-rankSuggestions("some", c("time", "thing", "years", "weeks"), bigram.df)
+choices <- c("time", "thing", "years", "weeks")
+rankSuggestions("quite some", choices, trigram.df)
+rankSuggestions("some", choices, bigram.df)
 
-rankSuggestions("his little", c("fingers", "ears", "toes", "eyes"), trigram.df)
-rankSuggestions("little", c("fingers", "ears", "toes", "eyes"), bigram.df)
+choices <- c("fingers", "ears", "toes", "eyes")
+rankSuggestions("his little", choices, trigram.df)
+rankSuggestions("little", choices, bigram.df)
 
-rankSuggestions("during the", c("hard", "sad", "bad", "worse"), trigram.df)
-rankSuggestions("the", c("hard", "sad", "bad", "worse"), bigram.df)
+choices <- c("hard", "sad", "bad", "worse")
+rankSuggestions("during the", choices, trigram.df)
+rankSuggestions("the", choices, bigram.df)
 
-rankSuggestions("must be", c("callous", "asleep", "insane", "insensitive"), trigram.df)
-rankSuggestions("be", c("callous", "asleep", "insane", "insensitive"), bigram.df)
+choices <- c("callous", "asleep", "insane", "insensitive")
+rankSuggestions("must be", choices, trigram.df)
+rankSuggestions("be", choices, bigram.df)
 
 ###
 # quiz 3
 ###
 
-rankSuggestions("and id", c("eat", "die", "give", "sleep"), trigram.df)
-rankSuggestions("id", c("eat", "die", "give", "sleep"), bigram.df)
+choices <- c("eat", "die", "give", "sleep")
+rankSuggestions("and id", choices, trigram.df)
+rankSuggestions("id", chioces, bigram.df)
 
-rankSuggestions("about his", c("marital", "financial", "spiritual", "horicultural"), trigram.df)
-rankSuggestions("his", c("marital", "financial", "spiritual", "horicultural"), bigram.df)
+choices <- c("marital", "financial", "spiritual", "horicultural")
+rankSuggestions("about his", choices, trigram.df)
+rankSuggestions("his", choices, bigram.df)
 
-rankSuggestions("monkeys this", c("weekend", "month", "morning", "decade"), trigram.df)
-rankSuggestions("this", c("weekend", "month", "morning", "decade"), bigram.df)
+choices <- c("weekend", "month", "morning", "decade")
+rankSuggestions("monkeys this", choices, trigram.df)
+rankSuggestions("this", choices, bigram.df)
 
-rankSuggestions("reduce your", c("happiness", "stress", "sleepiness", "hunger"), trigram.df)
-rankSuggestions("your", c("happiness", "stress", "sleepiness", "hunger"), bigram.df)
+choices <- c("happiness", "stress", "sleepiness", "hunger")
+rankSuggestions("reduce your", choices, trigram.df)
+rankSuggestions("your", choices, bigram.df)
 
-rankSuggestions("take a", c("walk", "look", "picture", "minute"), trigram.df)
-rankSuggestions("a", c("walk", "look", "picture", "minute"), bigram.df)
+choices <- c("walk", "look", "picture", "minute")
+rankSuggestions("take a", choices, trigram.df)
+rankSuggestions("a", choices, bigram.df)
 
-rankSuggestions("settle the", c("account", "incident", "case", "matter"), trigram.df)
-rankSuggestions("the", c("account", "incident", "case", "matter"), bigram.df)
+choices <- c("account", "incident", "case", "matter")
+rankSuggestions("settle the", choices, trigram.df)
+rankSuggestions("the", choices, bigram.df)
 
-rankSuggestions("in each", c("toe", "arm", "finger", "hand"), trigram.df)
-rankSuggestions("each", c("toe", "arm", "finger", "hand"), bigram.df)
+choices <- c("toe", "arm", "finger", "hand")
+rankSuggestions("in each", choices, trigram.df)
+rankSuggestions("each", choices, bigram.df)
 
-rankSuggestions("to the", c("center", "side", "top", "middle"), trigram.df)
-rankSuggestions("the", c("center", "side", "top", "middle"), bigram.df)
+choices <- c("center", "side", "top", "middle")
+rankSuggestions("to the", choices, trigram.df)
+rankSuggestions("the", choices, bigram.df)
 
-rankSuggestions("from playing", c("weekly", "inside", "daily", "outside"), trigram.df)
-rankSuggestions("playing", c("weekly", "inside", "daily", "outside"), bigram.df)
+choices <- c("weekly", "inside", "daily", "outside")
+rankSuggestions("from playing", choices, trigram.df)
+rankSuggestions("playing", choices, bigram.df)
 
-rankSuggestions("adam sandlers", c("movies", "stories", "novels", "pictures"), trigram.df)
-rankSuggestions("sandlers", c("movies", "stories", "novels", "pictures"), bigram.df)
+choices <- c("movies", "stories", "novels", "pictures")
+rankSuggestions("adam sandlers", choices, trigram.df)
+rankSuggestions("sandlers", choices, bigram.df)
 
 # shiny app upload
 
-setwd("./shiny/")
-deployApp(appName = "dsc-shiny")
+deployApp(appDir = paste0(getwd(),"/shiny"), appName = "dsc-shiny")
 
 # r pubs upload
 
