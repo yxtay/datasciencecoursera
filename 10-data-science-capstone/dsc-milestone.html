@@ -217,15 +217,15 @@ theme_set(theme_bw())
 <p>The purpose of the capstone project was to build a predictive text model from a large corpus of text documents 
 using the skills learned in the Data Science Specialisation. 
 New data science techniques of text analytics and natural language processing were required for the project. 
-This report would explain the exploratory analysis the author has gone through 
+This report would explain the exploratory analysis I have gone through 
 to gain an understanding of the data given and outline the steps explored to achieve the goal of the project.</p>
 
 <h2>Data</h2>
 
-<pre><code class="r">name &lt;- c(&quot;blogs&quot;, &quot;news&quot;, &quot;twitter&quot;)
-files &lt;- paste0(&quot;./final/en_US/en_US.&quot;, name, &quot;.txt&quot;)
+<pre><code class="r">fnames &lt;- c(&quot;blogs&quot;, &quot;news&quot;, &quot;twitter&quot;)
+files &lt;- paste0(&quot;./final/en_US/en_US.&quot;, fnames, &quot;.txt&quot;)
 texts &lt;- llply(files, readLines, skipNul = T)
-names(texts) &lt;- name
+names(texts) &lt;- fnames
 </code></pre>
 
 <p>The data consisted of text documents in 4 different languages: English, Finnish, German and Russian. 
@@ -269,7 +269,8 @@ As a result, the length of tweets are typically not very long.</p>
 
 <h2>Preprocessing and Text Cleaning</h2>
 
-<pre><code class="r">clean_text &lt;- function(s) {
+<pre><code class="r">before &lt;- texts$blogs[3]
+clean_text &lt;- function(s) {
     # convert encoding to ascii
     s &lt;- iconv(s, to = &quot;ascii&quot;, sub = &quot;&quot;)
     # convert to lower case
@@ -279,11 +280,12 @@ As a result, the length of tweets are typically not very long.</p>
     return(s)
 }
 texts &lt;- llply(texts, clean_text)
+after &lt;- texts$blogs[3]
 words &lt;- llply(texts, stri_split_boundaries, type = &quot;word&quot;, skip_word_none = T)
 </code></pre>
 
 <p>Preprocessing and cleaning is an important step of text analytics to standardise the input documents. 
-Steps include converting the text to lowercase, removing punctuations and striping whitespaces.
+Steps include converting the text to lowercase and removing punctuations.
 Fortunately, the <code>tm</code> package simplified this process by providing useful functions for the typical 
 preprocessing steps. 
 I also converted the text into ASCII to remove Unicode characters to simplify the modelling process later.
@@ -503,6 +505,27 @@ perhaps by removing ngrams with low frequencies.</p>
 
 <p>I am imagining using different level of ngrams for prediction and using some form of mixture or backoff
 model to combine the predictions. This does not appear straightforward at the moment.</p>
+
+<p>Hence, the following steps will be required:</p>
+
+<ul>
+<li>generate ngrams from the corpus, for n up to 4 or 5</li>
+<li>count the ngrams</li>
+<li>normalise the counts by the first (n-1) words to obtain proportion figures</li>
+<li>apply smoothing on the proportion figures between different levels of n</li>
+<li>consider applying different weights to the different corpus</li>
+</ul>
+
+<p>To build the the final app, the additional steps will be:</p>
+
+<ul>
+<li>prepare a preprocessing function for the user input text</li>
+<li>obtain ngrams of different levels from the processed inputs</li>
+<li>prepare a function to rank predictions based on the smoothed ngram proptions</li>
+<li>show to top (or possibly top few) predictions</li>
+<li>add buttons to simplify user input of predicted words</li>
+<li>perhaps include options to allow user to adjust weights between different corpus</li>
+</ul>
 
 </body>
 
