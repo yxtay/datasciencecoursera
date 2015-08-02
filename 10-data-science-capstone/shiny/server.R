@@ -51,10 +51,10 @@ rank_pred <- function(s.tbl, prob.table, n.pred = 5, cp.weights = c(1, 1, 1), ng
     # combine prediction probabilities from different corpus by cp.weights
     tbl <- prob.table[s.tbl, .(p = sum(p * cp.weights[corpus]) / sum(cp.weights)), 
                       by = c(key(prob.table), "n"), nomatch = 0]
-    # obtain size of largest ngram in predictions
+    # obtain size of largest n-gram in predictions
     mn <- max(tbl[["n"]])
     if (is.null(mn)) mn <- 1
-    # combine prediction probabilities from different ngram size by ng.weights
+    # combine prediction probabilities from different n-gram size by ng.weights
     tbl <- tbl[, .(p = sum(p * ng.weights[n]) / sum(ng.weights[1:mn])), by = pred]
     # replace predictions with actual word and take the largest n.pred ones ordered by probabilities
     tbl[, `:=` (pred = word.index[pred])][order(-p)[1:min(.N, n.pred)]]
@@ -112,17 +112,19 @@ shinyServer(function(input, output, clientData, session) {
               geom = "bar", stat = "identity",
               main = "Corpus Weights",
               xlab = "", ylab = "",
-              ylim = c(0, 1))
+              ylim = c(0, 1)) +
+            geom_text(aes(label = round(cp.weights, 3)), hjust = 0.5, vjust = -0.5)
     })
     
-    # render plot of ngram weights after normalising weights
+    # render plot of n-gram weights after normalising weights
     output$ngw.plot <- renderPlot({
         ng.weights <- (1:5) ^ input$ng.exp
         ng.weights <- ng.weights / sum(ng.weights)
         qplot(1:5, ng.weights,
               geom = "bar", stat = "identity",
-              main = "Ngram Weights",
+              main = "N-gram Weights",
               xlab = "", ylab = "",
-              ylim = c(0, 1))
+              ylim = c(0, 1)) +
+            geom_text(aes(label = round(ng.weights, 3)), hjust = 0.5, vjust = -0.5)
     })
 })

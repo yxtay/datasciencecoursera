@@ -1,2 +1,7 @@
 gh-pages/
 datasciencecoursera/
+**/RData/
+**/rsconnect/
+**/shinyapps/
+**/cache/
+**/*_cache/
