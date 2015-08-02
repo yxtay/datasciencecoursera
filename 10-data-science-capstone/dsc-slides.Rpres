@@ -1,7 +1,6 @@
 Data Science Capstone Pitch
 ========================================================
-author: Xavier Tay
-date: `r date()`
+author: YuXuan Tay
 
 N-Gram Language Model
 ========================================================
@@ -25,7 +24,7 @@ Prediction Algorithm
 My App
 ========================================================
 
-https://yxtay.shinyapps.io/dsc-shiny/
+https://kitdia.shinyapps.io/capstone
 
 - intuitive and simple interface
 - generates next-word prediction in short amount of time

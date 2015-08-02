@@ -1,6 +1,6 @@
 Data Science Capstone Pitch
 ========================================================
-author: YuXuan Tay
+author: kitdia
 
 N-Gram Language Model
 ========================================================
