@@ -2,26 +2,23 @@ library(shiny)
 library(data.table)
 library(stringi)
 library(ggplot2)
+library(wordcloud)
 theme_set(theme_classic())
 
-load("RData/prob_table.RData")
-load("RData/word_index.RData")
+prob.table <- readRDS("data/prob_table.rds")
+word.index <- readRDS("data/word_index.rds")
 
 process_input <- function(s) {
-    # split into sentences
-    s <- stri_split_boundaries(s, type = "sentence")
-    s <- unlist(lapply(s, function(s) {
-        # convert encoding to ascii
-        s <- iconv(s, to = "ascii", sub = "")
-        # convert to lower case
-        s <- stri_trans_tolower(s)
-        # remove punctuations
-        s <- stri_replace_all_regex(s, "[[:punct:]]", "")
-        # split into words
-        s <- stri_split_boundaries(s, type = "word", skip_word_none = T)
-        # pad with empty string at beginning of sentence
-        s <- c("", s)
-    }))
+    # convert encoding to ascii
+    s <- iconv(s, to = "ascii", sub = "")
+    # convert to lower case
+    s <- stri_trans_tolower(s)
+    # remove punctuations
+    s <- stri_replace_all_regex(s, "[[:punct:]]", "")
+    # split into words
+    s <- unlist(stri_split_boundaries(s, type = "word", skip_word_none = T))
+    # pad with empty string at beginning of sentence
+    s <- c("", s)
     # handle numbers
     s <- stri_replace_all_regex(s, "^[[:digit:]]+$", "<NUM>")
     s <- stri_replace_all_regex(s, "[[:digit:]]+", "")
@@ -45,7 +42,7 @@ input_table <- function(s, n = 4) {
     unique(setkeyv(s.tbl, names(s.tbl)))
 }
 
-rank_pred <- function(s.tbl, prob.table, n.pred = 5, cp.weights = c(1, 1, 1), ng.weights = sqrt(1:5)) {
+rank_pred <- function(s.tbl, prob.table, n.pred = 5, cp.weights = c(1, 1, 1), ng.weights = (1:5) ^ 2) {
     # corpus weights to be referred by name
     names(cp.weights) <- c("blogs", "news", "twitter")
     # combine prediction probabilities from different corpus by cp.weights
@@ -63,29 +60,36 @@ rank_pred <- function(s.tbl, prob.table, n.pred = 5, cp.weights = c(1, 1, 1), ng
 shinyServer(function(input, output, clientData, session) {
     # render unedited input text
     output$textInput <- renderText({ input$text })
+    
     # process input text
     processed <- reactive({ process_input(input$text) })
+    
     # render processed text
     output$textProcessed <- renderText({ paste0('"', processed(), '"', collapse = ", ") })
+    
     # obtain data.table on processed input text
     input.tbl <- reactive({
         cp.weights <- c(input$blogs.w, input$news.w, input$twitter.w)
         ng.weights <- (1:5) ^ input$ng.exp
         s.tbl <- input_table(processed())
-        rank_pred(s.tbl, prob.table, n.pred = 10, cp.weights = cp.weights, ng.weights = ng.weights)
+        rank_pred(s.tbl, prob.table, n.pred = 30, cp.weights = cp.weights, ng.weights = ng.weights)
         })
-    # render prediction table with normalised score
-    output$pred.tbl <- renderTable({
+    
+    # render word cloud of predicted words scaled by confidence
+    output$word_cloud <- renderPlot({
         pred.table <- copy(input.tbl())
-        pred.table[, `:=` (s = p / sum(p))]
-        setnames(pred.table[, c("pred", "s"), with = F], c("pred", "s"), c("Predicted Word", "Normalised Score"))
+        with(pred.table,
+             wordcloud(pred, p, scale = c(7, 2), 
+                       min.freq = 0, random.order = F,
+                       colors = brewer.pal(9, "Set1"))
+        )
     })
     
     observe({
         # react to itself
         input$choice
-        # obtain 5 predictions based on updated input text
-        n = 5
+        # obtain n predictions based on updated input text
+        n = input$n.pred
         pred.tbl <- copy(input.tbl())
         pred <- head(pred.tbl[["pred"]], n)
         choices <- paste0(" ", pred)
@@ -111,9 +115,14 @@ shinyServer(function(input, output, clientData, session) {
         qplot(c("Blogs", "News", "Twitter"), cp.weights,
               geom = "bar", stat = "identity",
               main = "Corpus Weights",
-              xlab = "", ylab = "",
+              xlab = "Corpus",
               ylim = c(0, 1)) +
-            geom_text(aes(label = round(cp.weights, 3)), hjust = 0.5, vjust = -0.5)
+            geom_text(aes(label = round(cp.weights, 3)), hjust = 0.5, vjust = -0.5) +
+            geom_text(aes(y = 0, label = c("Blogs", "News", "Twitter")), hjust = 0.5, vjust = 1.5) + 
+            theme(axis.line = element_blank(),
+                  axis.text = element_blank(),
+                  axis.ticks = element_blank(),
+                  axis.title.y = element_blank())
     })
     
     # render plot of n-gram weights after normalising weights
@@ -123,8 +132,13 @@ shinyServer(function(input, output, clientData, session) {
         qplot(1:5, ng.weights,
               geom = "bar", stat = "identity",
               main = "N-gram Weights",
-              xlab = "", ylab = "",
+              xlab = "N-gram Length",
               ylim = c(0, 1)) +
-            geom_text(aes(label = round(ng.weights, 3)), hjust = 0.5, vjust = -0.5)
+            geom_text(aes(label = round(ng.weights, 3)), hjust = 0.5, vjust = -0.5) +
+            geom_text(aes(y = 0, label = 1:5), hjust = 0.5, vjust = 1.5) + 
+            theme(axis.line = element_blank(),
+                  axis.text = element_blank(),
+                  axis.ticks = element_blank(),
+                  axis.title.y = element_blank())
     })
 })

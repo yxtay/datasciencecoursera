@@ -6,35 +6,6 @@ shinyUI(
         
         headerPanel("Data Science Capstone Project"),
         
-        column(4,
-               
-               wellPanel(
-                   
-                   h4("Corpus Weights"),
-                   
-                   sliderInput("blogs.w", "Blogs",
-                               min = 0, max = 10, value = 1, step = 0.1),
-                   
-                   sliderInput("news.w", "News",
-                               min = 0, max = 10, value = 1, step = 0.1),
-                   
-                   sliderInput("twitter.w", "Twitter",
-                               min = 0, max = 10, value = 1, step = 0.1)
-               ),
-               
-               wellPanel(
-                   
-                   h4("N-gram Weights"),
-                   
-                   sliderInput("ng.exp", "Exponent on n-gram size",
-                               min = -1, max = 4, value = 2, step = 0.1)
-               ),
-               
-               p(strong("Slide Deck:"),
-                 a("RPubs", href = "http://rpubs.com/yxtay/dsc-slides"))
-               
-        ),
-        
         mainPanel(
             
             tabsetPanel(
@@ -56,9 +27,9 @@ shinyUI(
                          
                          verbatimTextOutput("textProcessed"),
                          
-                         strong("Predictions Table"),
+                         strong("Prediction Word Cloud"),
                          
-                         tableOutput("pred.tbl")
+                         plotOutput("word_cloud")
                 ),
                 
                 tabPanel("Weights",
@@ -81,10 +52,14 @@ shinyUI(
                            "after some preprocessing, such as sentence detection and punctuation removal.",
                            "The n-grams are then counted and normalised into proportion figures.",
                            "Some smoothing is then applied to the proportion from the n-grams of different sizes.",
-                           "Finally, the proportions from the 3 different corpora are combined on some preset weights."),
-                         p("The user is able to control the corpus weights",
+                           "Finally, the proportions from the 3 different corpora are combined on some defined weights."),
+                         
+                         p("The user is able to set the number of suggestions, the corpus weights",
                            "and the amount of smoothing between n-gram sizes."),
                          
+                         strong("Number of Suggestions"),
+                         
+                         p("Up to 6 suggestions may be offered, if desired."),
                          
                          strong("Corpus Weights"),
                          
@@ -108,6 +83,41 @@ shinyUI(
                          p("At initiation, the exponent is set to 2 to give larger n-grams more weights.")
                 )
             )
+        ),
+        
+        column(4,
+               
+               p(strong("Slide Deck:"),
+                 a("RPubs", href = "http://rpubs.com/yxtay/dsc-slides")),
+               
+               wellPanel(
+                   sliderInput("n.pred", "No. of Suggestions",
+                               min = 1, max = 6, value = 1)
+               ),
+               
+               wellPanel(
+                   
+                   h4("Corpus Weights"),
+                   
+                   sliderInput("blogs.w", "Blogs",
+                               min = 0, max = 10, value = 1, step = 0.1),
+                   
+                   sliderInput("news.w", "News",
+                               min = 0, max = 10, value = 1, step = 0.1),
+                   
+                   sliderInput("twitter.w", "Twitter",
+                               min = 0, max = 10, value = 1, step = 0.1)
+               ),
+               
+               wellPanel(
+                   
+                   h4("N-gram Weights"),
+                   
+                   sliderInput("ng.exp", "Exponent on n-gram size",
+                               min = -1, max = 4, value = 2, step = 0.1)
+               ),
+               
+               strong("Created by YuXuan Tay")
         )
     )
 )

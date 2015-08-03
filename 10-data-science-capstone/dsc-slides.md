@@ -1,7 +1,7 @@
 Data Science Capstone Pitch
 ========================================================
 author: YuXuan Tay
-date: Sunday, August 02, 2015
+date: Monday, August 03, 2015
 
 Prediction Model
 ========================================================
@@ -26,17 +26,17 @@ and based on preset weights for the different corpora
 - previous step incorporates backoff automatically in the event only small n-grams can be found
 - predicted words with top 5 confidence are presented as suggestions
 
-My Shiny App
 ========================================================
 
-https://yxtay.shinyapps.io/dsc-shiny
-![Shiny App screenshot](dsc-shiny-sc.png "Screenshot of my word prediction Shiny app")
+[My Shiny App](https://yxtay.shinyapps.io/dsc-shiny)
+[![Shiny App screenshot](dsc-shiny-sc.png "Click to launch")](https://yxtay.shinyapps.io/dsc-shiny)
 
 Features
 ========================================================
 
-- suggestions displayed as buttons for user interaction
+- suggestion(s) displayed as button(s) for user interaction
 - user input text updates with user selected suggestion
-- processing steps and prediction table presented to give hints of underlying steps
-- normalised score gives idea of word prediction confidence
+- processing steps and prediction table presented to offer hints of underlying steps
+- prediction word cloud gives idea of word prediction confidence
+- number of suggestions can be increased up to 6
 - adjustable corpus and ngram weights for advance users

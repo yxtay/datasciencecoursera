@@ -17,6 +17,12 @@ theme_set(theme_bw())
 # knit2html("dsc-milestone.Rmd")
 
 ###
+# shiny app ----
+###
+
+# deployApp("shiny", "dsc-shiny")
+
+###
 # read text ----
 ###
 
@@ -334,13 +340,13 @@ load("RData/word_index.RData")
 process_input <- function(s) {
     # split into sentences
     s <- stri_split_boundaries(s, type = "sentence")
-    s <- unlist(llply(s, function(s) {
+    s <- unlist(lapply(s, function(s) {
         # convert encoding to ascii
         s <- iconv(s, to = "ascii", sub = "")
         # convert to lower case
         s <- stri_trans_tolower(s)
         # remove punctuations
-        s <- removePunctuation(s)
+        s <- stri_replace_all_regex(s, "[[:punct:]]", "")
         # split into words
         s <- stri_split_boundaries(s, type = "word", skip_word_none = T)
         # pad with empty string at beginning of sentence
@@ -349,38 +355,36 @@ process_input <- function(s) {
     # handle numbers
     s <- stri_replace_all_regex(s, "^[[:digit:]]+$", "<NUM>")
     s <- stri_replace_all_regex(s, "[[:digit:]]+", "")
-    # remove consecutive numbers 
-    nidx <- s != "<NUM>"
-    s <- s[nidx | lead(nidx, 1)]
-    # remove consecutive empty string 
-    nidx <- s != ""
-    s <- s[nidx | lead(nidx, 1)]
 }
 
-predict_dt <- function(s, n = 4) {
+input_table <- function(s, n = 4) {
+    # obtain last n words from processed input
     s <- tail(s, n)
+    # replace words with numbers using word.index
     s <- match(s, word.index, nomatch = match("<RARE>", word.index))
     # pad with NA is word count < n
     if (length(s) < n) {s <- c(rep(NA, n - length(s)), s)}
-    s.dt <- as.data.table(as.list(s))
-    setnames(s.dt, 1:n, paste0("wordm", n:1))
-    s.dt <- rbindlist(llply(0:n, function(i) {
-        if (i == 0) {return(copy(s.dt))}
-        copy(s.dt)[, eval(names(s.dt)[1:i]) := NA]
+    # create data.table from processed input and name columns appropriately
+    s.tbl <- as.data.table(as.list(s))
+    setnames(s.tbl, 1:n, paste0("wordm", n:1))
+    # create a few copies of the previous tables with first few words removed.
+    s.tbl <- rbindlist(lapply(0:n, function(i) {
+        if (i == 0) {return(copy(s.tbl))}
+        copy(s.tbl)[, eval(names(s.tbl)[1:i]) := NA]
     }))
-    unique(setkeyv(s.dt, names(s.dt)))
+    unique(setkeyv(s.tbl, names(s.tbl)))
 }
 
-rank_pred <- function(s.tbl, prob.table, n.pred = 5, cp.weights = c(1, 1, 1), ng.weights = sqrt(1:5)) {
+rank_pred <- function(s.tbl, prob.table, n.pred = 5, cp.weights = c(1, 1, 1), ng.weights = (1:5) ^ 2) {
     # corpus weights to be referred by name
     names(cp.weights) <- c("blogs", "news", "twitter")
     # combine prediction probabilities from different corpus by cp.weights
     tbl <- prob.table[s.tbl, .(p = sum(p * cp.weights[corpus]) / sum(cp.weights)), 
                       by = c(key(prob.table), "n"), nomatch = 0]
-    # obtain size of largest ngram in predictions
+    # obtain size of largest n-gram in predictions
     mn <- max(tbl[["n"]])
     if (is.null(mn)) mn <- 1
-    # combine prediction probabilities from different ngram size by ng.weights
+    # combine prediction probabilities from different n-gram size by ng.weights
     tbl <- tbl[, .(p = sum(p * ng.weights[n]) / sum(ng.weights[1:mn])), by = pred]
     # replace predictions with actual word and take the largest n.pred ones ordered by probabilities
     tbl[, `:=` (pred = word.index[pred])][order(-p)[1:min(.N, n.pred)]]

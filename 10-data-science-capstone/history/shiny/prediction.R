@@ -4,9 +4,9 @@ library(plyr)
 # prediction
 ###
 
-load("RData/unigramdf.RData")
-load("RData/bigramdf2.RData")
-load("RData/trigramdf2.RData")
+load("data/unigramdf.RData")
+load("data/bigramdf2.RData")
+load("data/trigramdf2.RData")
 
 cleanText <- function(textInput) {
     # remove non-printable characters i.e. not [:alnum:], [:punct:] and [:space:]
